@@ -1,0 +1,47 @@
+<!--=====================================================================
+ * (c) 2017 Appirio - A Wipro Company, Inc
+ * Name: ARM_Survey_Question_Detail
+ * Description: Account list component on Assesment 
+ * Created Date: Mar 07, 2017
+ * Created By: Gaurav Gupta (Appirio - A Wipro Company)
+ * 
+ * Date Modified      Modified By                  Description of the update
+ *  ===================================================================== -->
+
+<aura:component controller="ARM_Survey_List_Controller" implements="force:appHostable">
+    <aura:handler value="{!this}" name="init" action="{!c.loadAccounts}" />
+    <aura:attribute name="accountList" type="Account[]" />
+
+    <div class="slds-page-header" role="banner">
+        <div class="slds-media">
+            <div class="slds-media__figure">
+                <lightning:icon class="bg-black" iconName="standard:poll" size="large" alternativeText="Assessments" />
+            </div>
+            <div class="slds-media__body">
+                <p class="slds-page-header__title slds-truncate slds-align-middle">Accounts</p>
+                <p class="slds-text-body--small slds-page-header__info">Please click on any Account to see its surveys</p>
+            </div>
+        </div>
+    </div>
+    <!-- /.slds-page-header -->
+
+
+    <ul class="slds-list--vertical slds-has-dividers--bottom-space slds-has-block-links--space survey-list">
+        <aura:iteration items="{!v.accountList}" var="account">
+
+            <li class="slds-list__item" data-id="{!account.Id}">
+                <ui:outputURL aura:id="assessmentLink"                                      
+                                      alt="{!account.Id}" 
+                                      disabled="false"
+                                      value="javascript:void(0);" 
+                                      label="{!account.Name}"
+                                      title="{!account.Name}"
+                                      iconClass="slds-icon slds-icon--small slds-float--right icon-right-chevron"
+                                      click="{!c.goToSurveyList}">
+                     
+                </ui:outputURL> 
+            </li>
+        </aura:iteration>
+    </ul>
+    
+</aura:component>

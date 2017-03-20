@@ -1,0 +1,46 @@
+<!--=====================================================================
+ * (c) 2017 Appirio - A Wipro Company, Inc
+ * Name: ARM_Branding.cmp
+ * Description: Top most banner component to display the branding information
+ * Created Date: Mar 07, 2017
+ * Created By: Gaurav Gupta (Appirio - A Wipro Company)
+ * 
+ * Date Modified      Modified By                  Description of the update
+ *  ===================================================================== -->
+
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="brandImage" type="String" />
+    <aura:attribute name="bannerImage" type="String" />
+    <aura:attribute name="bannerMobileLogo" type="String" />
+    <aura:attribute name="logoBackgroundColor" type="String" default="" />
+
+    <div class="scrolling">
+        <div class="contents-pic">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="5000">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="photo-boxs">
+                            <div class="picture-box fill">
+                                <img src="{!$SfdcSite.pathPrefix + v.bannerImage}" alt="photo" />
+                            </div>
+                        </div>
+                        <!-- end .photo-boxs -->
+                        <div class="txt-boxs red-block">
+                            <div class="boxs" style="{!(v.logoBackgroundColor == '' ? '' : 'background-color:' + v.logoBackgroundColor)}">
+                                <img class="hidden-xs" src="{!$SfdcSite.pathPrefix + v.brandImage}" alt="photo" />
+                                <img class="hidden-sm hidden-md hidden-lg" src="{!$SfdcSite.pathPrefix + v.bannerMobileLogo}" alt="photo" />
+                            </div>
+                        </div>
+                        <!-- end .txt-boxs -->
+                    </div>
+                    <!-- end .item -->
+                </div>
+                <!-- end .carousel-inner -->
+
+            </div>
+            <!-- end .carousel slide -->
+        </div>
+        <!-- end .contents-pic -->
+    </div>
+    <!-- end .scrolling -->
+</aura:component>

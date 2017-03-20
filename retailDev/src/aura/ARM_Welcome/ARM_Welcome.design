@@ -1,0 +1,4 @@
+<design:component >
+	<design:attribute name="device" label="Device" />
+    <design:attribute name="hidething" label="Hide class" />
+</design:component>

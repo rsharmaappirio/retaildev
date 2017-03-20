@@ -1,0 +1,13 @@
+<!--=====================================================================
+ * (c) 2017 Appirio - A Wipro Company, Inc
+ * Name: ARM_Spinner.evt
+ * Description: Event Used to show the loading wait spinner whenever we 
+				are waiting for processing to happen 
+ * Created Date: Mar 07, 2017
+ * Created By: Gaurav Gupta (Appirio - A Wipro Company)
+ * 
+ * Date Modified      Modified By                  Description of the update
+ *  ===================================================================== -->
+
+<aura:event type="APPLICATION" description="Fire this event to show spinner whenever we are waiting for processing to happen" >
+</aura:event>

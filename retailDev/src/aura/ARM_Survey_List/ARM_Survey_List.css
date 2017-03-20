@@ -1,0 +1,34 @@
+/*=====================================================================
+ * (c) 2017 Appirio - A Wipro Company, Inc
+ * Name: ARM_Survey_List.css
+ * Description: CSS styles for ARM_Survey_List
+ * Created Date: Mar 07, 2017
+ * Created By: Gaurav Gupta (Appirio - A Wipro Company)
+ * 
+ * Date Modified      Modified By                  Description of the update
+ *  =====================================================================*/
+
+/** NOT NEEDED: WE need to keep links size consistent through out the app
+.THIS a{
+    font-size : 15px !important;
+    
+}
+.THIS .back-icon{
+    background-color:#622f78 !important;
+}
+.THIS .back-icon{
+    background-color:#622f78 !important;
+}
+.THIS .bg-black{
+    background-color:#622f78 !important;
+}
+**/
+.THIS .icon-right-chevron{
+	background:#cccccc url(../resource/0000000000000/ARM_SLDS/assets/icons/utility/chevronright_60.png) no-repeat;
+    background-size:1.5rem 1.5rem;
+}
+
+.THIS .icon-left-chevron--small{
+    background:#cccccc url(../resource/0000000000000/ARM_SLDS/assets/icons/utility/chevronleft_60.png) no-repeat;
+    background-size:1rem 1rem;
+}

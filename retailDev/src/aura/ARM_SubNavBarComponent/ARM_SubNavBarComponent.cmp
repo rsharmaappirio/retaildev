@@ -1,0 +1,60 @@
+<!--=====================================================================
+ * (c) 2017 Appirio - A Wipro Company, Inc
+ * Name: ARM_SubNavBarComponent.cmp
+ * Description: Used to display the Sub-navigation bar on the left hand side
+ * Created Date: Mar 07, 2017
+ * Created By: Gaurav Gupta (Appirio - A Wipro Company)
+ * 
+ * Date Modified      Modified By                  Description of the update
+ *  ===================================================================== -->
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" >
+	<aura:attribute name="sidebarNavList" type="List" />
+    <aura:attribute name="showSubNav" type="Boolean" default="true"/>
+    <aura:attribute name="navBackgroundColor" type="String" default=""/>
+    <aura:attribute name="subNavLinkColor" type="String" default=""/>
+    <aura:attribute name="subNavFontSize" type="String" default=""/>
+    <aura:attribute name="welcomeTextColor" type="String"/>
+    
+    <style type="text/css">
+      div.nav-area a.icon-after-custom{
+        color:{!v.subNavLinkColor};
+        font-size:{!v.subNavFontSize};
+      }
+      
+      @media (max-width: 1023px){
+		.sub-nav li {
+		    float: left;
+		    width: calc(100% / {!v.sidebarNavList.length});
+		    min-height: 136px;
+		}
+	  }
+    </style>
+    <div class="{!v.showSubNav == true ? 'purple-bar' : 'purple-bar purple-height'}" style="{!v.navBackgroundColor != '' ? 'background-color:' + v.navBackgroundColor : ''}">
+                   
+                    <c:ARM_Identity aura:id="IdentityComp" welcomeTextColor="{!v.welcomeTextColor}" />
+				    <aura:if aura:id="subNavIf" isTrue="{!v.showSubNav}">
+				    <div class="nav-area app_sub_nav" style="{!v.navBackgroundColor != '' ? 'background-color:' + v.navBackgroundColor : ''}">
+				        
+									<nav class="sub-nav">
+										<ul>
+										   <aura:iteration items="{!v.sidebarNavList}" var="nav"> 
+				                                <li title="{!nav.Display_Name__c}" >
+				                                    <a href="{!$SfdcSite.pathPrefix + nav.Page_URL__c}" 
+				                                       class="icon-after-custom" 
+				                                       style="{!'background-image:url(' + $SfdcSite.pathPrefix + (nav.Attachments.length > 0 ? '/servlet/servlet.FileDownload?file=' + nav.Attachments[0].Id : '/s.gif') + ');background-size: 64px 64px;
+															   background-repeat: no-repeat;background-position:50% 25%;opacity: 0.50;'}">
+				                                        <span class="txt">{!nav.Display_Name__c}</span>
+				                                    </a>
+				                                </li>
+				                            </aura:iteration>
+										
+				                         
+				                            
+										</ul>
+									</nav>
+									
+								</div>
+				    
+				    </aura:if>
+    </div>
+</aura:component>

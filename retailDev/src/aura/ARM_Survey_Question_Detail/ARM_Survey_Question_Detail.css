@@ -1,0 +1,248 @@
+/*=====================================================================
+ * (c) 2017 Appirio - A Wipro Company, Inc
+ * Name: ARM_Survey_Question_Detail.css
+ * Description: CSS style for ARM_Survey_Question_Detail component 
+ * Created Date: Mar 07, 2017
+ * Created By: Gaurav Gupta (Appirio - A Wipro Company)
+ * 
+ * Date Modified      Modified By                  Description of the update
+ *  ===================================================================== */
+
+.THIS .icon-left-chevron--small{
+    background:#cccccc url(../resource/0000000000000/ARM_SLDS/assets/icons/utility/chevronleft_60.png) no-repeat;
+    background-size:1rem 1rem;
+}
+
+.THIS .bg-black{
+    background-color:#d8dde6 !important;
+}
+
+.THIS .color-white{
+    color : #fff !important;
+}
+
+.THIS .question-number-text{
+    background-color : #622f78;
+    text-align:center;
+    color: #999;
+}
+.THIS .question-number{
+    font-weight:bold;
+}
+.THIS .question-detail{
+    margin-top : 10px;
+    font-size: 17px;
+}
+.THIS .hide{
+    display:none;
+}
+.THIS .imagePreview{
+    width: 100px;
+    height: 120px;
+    border: 1px solid #fff;
+    margin: 10px;
+}
+.THIS .slds-radio , .THIS .slds-checkbox{
+    background-color: #d8dde6;
+    padding: 5px;
+    border-radius: 23px 23px 23px 23px;
+    -moz-border-radius: 23px 23px 23px 23px;
+    -webkit-border-radius: 23px 23px 23px 23px;
+    border: 0px solid #000000;
+    margin-top: 10px;
+}
+.THIS .question-text{
+    border-bottom: 1px solid #622f78 !important;
+}
+.THIS div.question-title{
+   padding-bottom : 5px;
+    font-weight: bold;
+}
+.THIS div.question-count{
+    text-align: center;
+    border-left: 1px solid #622f78!important;
+}
+.THIS .file-upload {
+  position: relative;
+  overflow: hidden;
+  margin: 10px; }
+
+.THIS .file-upload input.file-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0); 
+}
+.THIS .photo-div {
+    text-align:center !important;
+}
+.THIS .back-icon{
+    background-color:#622f78 !important;
+}
+.THIS .back-icon{
+    background-color:#622f78 !important;
+}
+.THIS .width-medium{
+    width:20% !important;
+}
+.THIS .summary-div{
+    padding: 5px;
+    margin-bottom:10px;
+    border-bottom : 1px solid #622f78;
+}
+.THIS .summary-div p{
+    color: #622f78 !important;
+}
+
+.THIS .div-success{
+    text-align:center;
+}
+
+.THIS .finish-button{
+	background-image: url(../resource/0000000000000/ARM_SLDS/assets/icons/action/check_60.png);
+    background-position: 35% center;
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+}
+.THIS .next-button{
+	/**background-image: url(../resource/0000000000000/ARM_SLDS/assets/icons/utility/chevronright_60.png);**/
+    background-position: 35% center;
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+}
+
+.THIS .cancel-button{
+	background-image: url(../resource/0000000000000/ARM_SLDS/assets/icons/action/close_60.png);
+    background-position: 35% center;
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+}
+.THIS .edit-button{
+	background-image: url(../resource/0000000000000/ARM_SLDS/assets/icons/action/edit_60.png);
+    background-position: 35% center;
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+}
+
+
+.THIS.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 70%;
+}
+
+
+/*fix layout issue when smaller than 1280px width*/
+@media (max-width: 1279px) {
+    .THIS .finish-button{
+	background-image: url(../resource/0000000000000/ARM_SLDS/assets/icons/action/check_60.png);
+    background-position: 35% center;
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+    }
+    .THIS .cancel-button{
+        background-image: url(../resource/0000000000000/ARM_SLDS/assets/icons/action/close_60.png);
+        background-position: 35% center;
+        background-repeat: no-repeat;
+        background-size: 1.1em;
+    }
+    .THIS .edit-button{
+        background-image: url(../resource/0000000000000/ARM_SLDS/assets/icons/action/edit_60.png);
+        background-position: 35% center;
+        background-repeat: no-repeat;
+        background-size: 1.1em;
+    }
+}
+/*fix layout issue when smaller than 1160px width*/
+@media (max-width: 1159px) {
+    .THIS .finish-button{
+	background-image: url(../resource/0000000000000/ARM_SLDS/assets/icons/action/check_60.png);
+    background-position: 32% center;
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+    }
+    .THIS .cancel-button{
+        background-image: url(../resource/0000000000000/ARM_SLDS/assets/icons/action/close_60.png);
+        background-position: 32% center;
+        background-repeat: no-repeat;
+        background-size: 1.1em;
+    }
+    .THIS .edit-button{
+        background-image: url(../resource/0000000000000/ARM_SLDS/assets/icons/action/edit_60.png);
+        background-position: 32% center;
+        background-repeat: no-repeat;
+        background-size: 1.1em;
+    }
+}
+
+/*fix layout issue when smaller than 1199px width*/
+@media (max-width: 1098px) {
+    .THIS .finish-button{
+	background-image: url(../resource/0000000000000/ARM_SLDS/assets/icons/action/check_60.png);
+    background-position: 30% center;
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+    }
+    .THIS .cancel-button{
+        background-image: url(../resource/0000000000000/ARM_SLDS/assets/icons/action/close_60.png);
+        background-position: 30% center;
+        background-repeat: no-repeat;
+        background-size: 1.1em;
+    }
+    .THIS .edit-button{
+        background-image: url(../resource/0000000000000/ARM_SLDS/assets/icons/action/edit_60.png);
+        background-position: 30% center;
+        background-repeat: no-repeat;
+        background-size: 1.1em;
+    }
+}
+
+/*fix layout issue when smaller than 1149px width*/
+@media (max-width: 1048px) {
+    .THIS .finish-button{
+	   background-image: none;
+    }
+    .THIS .cancel-button{
+        background-image: none;
+    }
+    .THIS .edit-button{
+        background-image: none;
+    }
+    /**
+    .THIS .finish-button{
+	background-image: url(../resource/0000000000000/ARM_SLDS/assets/icons/action/check_60.png);
+    background-position: 5% center;
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+    }
+    **/
+    
+}
+
+/*fix layout issue when smaller than 1024px width*/
+@media (max-width: 1023px) {
+    .THIS .finish-button{
+	   background-image: none;
+    }
+    .THIS .cancel-button{
+        background-image: none;
+    }
+    .THIS .edit-button{
+        background-image: none;
+    }
+    /**
+    .THIS .finish-button{
+	background-image: url(../resource/0000000000000/ARM_SLDS/assets/icons/action/check_60.png);
+    background-position: 5% center;
+    background-repeat: no-repeat;
+    background-size: 1.1em;
+    }
+    **/
+}

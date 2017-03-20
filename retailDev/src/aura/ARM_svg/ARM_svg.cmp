@@ -1,0 +1,14 @@
+<!--=====================================================================
+ * (c) 2017 Appirio - A Wipro Company, Inc
+ * Name: ARM_svg.cmp
+ * Description: Component for handling SVG element
+ * Created Date: Mar 07, 2017
+ * Created By: Gaurav Gupta (Appirio - A Wipro Company)
+ * 
+ * Date Modified      Modified By                  Description of the update
+ *  ===================================================================== -->
+<aura:component >
+  <aura:attribute name="class" type="String" description="CSS classname for the SVG element" />
+  <aura:attribute name="xlinkHref" type="String" description="SLDS icon path. Ex: /assets/icons/utility-sprite/svg/symbols.svg#download" />
+  <aura:attribute name="ariaHidden" type="String" default="true" description="aria-hidden true or false. defaults to true" />
+</aura:component>

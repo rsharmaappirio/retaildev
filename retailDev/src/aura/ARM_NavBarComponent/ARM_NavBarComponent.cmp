@@ -1,0 +1,71 @@
+<!--=====================================================================
+ * (c) 2017 Appirio - A Wipro Company, Inc
+ * Name: ARM_NavBarComponent.cmp
+ * Description: Used to display the navigation bar on the left hand side
+ * Created Date: Mar 07, 2017
+ * Created By: Gaurav Gupta (Appirio - A Wipro Company)
+ * 
+ * Date Modified      Modified By                  Description of the update
+ *===================================================================== -->
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="selectedNavigationItemId" type="String" />
+    <aura:attribute name="sidebarNavList" type="List" />
+    <aura:attribute name="brandMobileImage" type="String"/>
+    <aura:attribute name="navBackgroundColor" type="String" default=""/>
+    <aura:attribute name="navLinkColor" type="String" default=""/>
+    <aura:attribute name="navFontSize" type="String" default=""/>
+    <aura:attribute name="currentNavBackgroundColor" type="String" default=""/>
+    <aura:attribute name="currentNavLinkColor" type="String" default=""/>
+    
+    
+    <style type="text/css">
+        aside.aside-menu a.icon-after-custom{
+        color:{!v.navLinkColor};
+        font-size:{!v.navFontSize};
+        }
+        
+        .aside-menu li.current {
+        background-color: {!v.currentNavBackgroundColor};
+        }
+        
+        .aside-menu li.current a {
+        color: {!v.currentNavLinkColor};
+        text-decoration: none;
+        }
+    </style>
+    
+    <aside class="aside-menu" style="{!v.navBackgroundColor != '' ? 'background-color:' + v.navBackgroundColor + '!important' : ''}">
+        <aura:if isTrue="{!and(v.brandMobileImage != null , v.brandMobileImage != '/s.gif')}">
+            <span class="desktop-hide mobile-logo">
+                <img class="img-responsive" src="{!$SfdcSite.pathPrefix + v.brandMobileImage}" alt="photo"/>
+            </span>
+        </aura:if>
+        <nav class="nav">
+            <ul>
+                <aura:iteration items="{!v.sidebarNavList}" var="nav"> 
+                    
+                    <li id="{!nav.Id}" aura:id="navListItem" title="{!nav.Display_Name__c}" 
+                        class="{!(v.selectedNavigationItemId == nav.Id ? ' current' : '')}" 
+                        style="{!'background-image:url(' + $SfdcSite.pathPrefix + (nav.Attachments.length > 0 ? '/servlet/servlet.FileDownload?file=' + nav.Attachments[0].Id : '/s.gif') + ');
+                               background-size: 32px 32px;
+                               background-repeat: no-repeat;
+                               background-position:15px 20px;
+                               opacity: 0.50;'}">
+                        
+                        <ui:outputURL aura:id="navLink"                    
+                                      alt="{!nav.Id}" 
+                                      class="icon-after-custom" 
+                                      disabled="false"
+                                      value="{!$SfdcSite.pathPrefix + nav.Page_URL__c}" 
+                                      label="{!nav.Display_Name__c}"
+                                      iconClass=""
+                                      target="_top"
+                                      title="{!nav.Display_Name__c}"
+                                      click="{!c.clickHandler}"/>
+                    </li>    
+                </aura:iteration>
+            </ul>
+        </nav>
+    </aside>
+    
+</aura:component>

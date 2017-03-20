@@ -1,0 +1,138 @@
+.THIS .col-top-bar{
+    height: 57px;
+}
+.THIS .avatarp{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}
+.THIS.welcome-box{
+   border-radius: .25rem;
+   border: 1px solid #d8dde6;
+}
+
+.THIS .col-welcome-message{
+}
+
+.THIS .graph-img{
+    width: 100px;
+}
+
+.THIS .col-graph{
+        margin-top: -22px;
+}
+
+.THIS .col-footer{
+}
+
+.THIS .profile-container{
+    background-color: white;
+    width: 70px;
+    height: 70px;
+    padding-top: 0px;
+    margin-top: 20px;
+    border: 2px solid #ffffff;
+}
+
+.THIS  .welcome-greetings{
+    font-size: 23px;
+    font-weight: 300;
+}
+
+.THIS  .welcome-font{
+    font-family: "Salesforce Sans",Arial,sans-serif; 
+    color: #6d6d6d;
+}
+
+.THIS .slds-col.slds-size--1-of-1.welcometext{
+    font-size: 17px!important;
+    font-weight: 300!important;
+    color: #757575!important;
+}
+
+.THIS .slds-avatar--large{
+    width: 70px !important;
+    height: 70px !important;
+    border: 2px solid #ffffff;
+}
+.THIS .welcome-line{
+    width: 89%;
+    margin: 10px auto;
+    border: 1px solid #efecec;
+}
+
+.THIS .col-top-bar-img{
+    background-image: url(/sfsites/c/resource/IHOP_Assets2/Waffle_Syrup.jpg);
+    background-position-y: -689px;
+    background-position-x: -1318px;
+    background-size: 430px;
+}
+
+.THIS .welcome-graph{
+    width: 86px;
+    height: 86px;
+    background-image: url(/sfsites/c/resource/IHOP_Assets2/Oval_3.png);
+    background-size: contain ;
+    background-repeat: no-repeat;
+}
+.THIS .cIHOP_Welcome .col-top-bar{
+    background-image: url(/sfsites/c/resource/IHOP_Assets2/Waffle_Syrup.jpg);
+    background-position-y: -645px;
+    background-position-x: -1230px;
+    background-size: 615px;
+    height:55px !important;
+    background-repeat: no-repeat;
+}
+
+.THIS {
+    height: 306px;
+}
+.THIS .welcome-score-text-header{
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.THIS .welcome-score-text-subheader{
+    font-size: 15px!important;
+    font-weight: 300!important;
+    color: #757575!important;
+}
+
+.THIS .welcome-score-container{
+    width: 82%;
+    margin: auto;
+}
+.THIS .welcome-float-left{
+    float:left;
+}
+.THIS .welcome-float-right{
+    float:right;
+}
+
+.THIS .welcome-score{
+        font-size: 19px;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 767px){
+
+.THIS .welcome-score-text-header{
+    font-size: 16px;
+}
+.THIS {
+	height: 190px;
+}
+.THIS .slds-col.slds-size--1-of-1.welcometext{
+    font-size: 16px!important;
+}
+
+    
+.THIS .welcome-score-container{
+    width: 82%;
+    height:82px;
+    margin: auto;
+}
+.THIS .welcome-score{
+}
+    
+}

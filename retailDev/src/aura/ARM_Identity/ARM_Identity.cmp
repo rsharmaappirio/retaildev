@@ -1,0 +1,50 @@
+<!--=====================================================================
+ * (c) 2017 Appirio - A Wipro Company, Inc
+ * Name: ARM_Identity.cmp
+ * Description: Component used to display the user information and its photograph
+ * Created Date: Mar 07, 2017
+ * Created By: Gaurav Gupta (Appirio - A Wipro Company)
+ * 
+ * Date Modified      Modified By                  Description of the update
+ *  ===================================================================== -->
+<aura:component controller="ARM_IdentityController" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="currentUser" type="User"/>
+    <aura:attribute name="numberRestaurants" type="Integer"/>
+    <aura:attribute name="welcomeTextColor" type="String"/>
+    <aura:attribute name="franchiseInformation" type="ARM_Retail_Function__c"/>
+
+    
+    <style type="text/css">
+      span.welcome-text-styles, a.welcome-text-styles{
+         color:{!v.welcomeTextColor}; 
+      }
+    </style>
+    
+    <div class="user-photo">
+        
+        <img src="{!v.currentUser.FullPhotoUrl}" alt="photo" />
+        
+        <div class="text">
+          <span class="br welcome-txt welcome-text-styles">Welcome</span>
+            
+            <ui:outputURL aura:id="userLink"                    
+                                      alt="{!v.currentUser.Id}" 
+                                      class="welcome-text-styles user-name br" 
+                                      disabled="false"
+                                      value="javascript:void(0)" 
+                                      label="{!v.currentUser.Name}"
+                                      iconClass=""
+                                      target="_top"
+                                      title="{!v.currentUser.Name}"
+                                      click="{!c.clickHandler}" 
+                                      />
+          <aura:renderIf isTrue="{!and(v.franchiseInformation.Display_Franchise_title__c,v.franchiseInformation.Franchise_title__c!=null,v.franchiseInformation.Franchise_title__c!='') }">  
+          	<span class="br num welcome-text-styles">{!(v.numberRestaurants > 0 ? (v.numberRestaurants > 1 ? v.numberRestaurants + ' '+v.franchiseInformation.Franchise_title__c : '1 '+v.franchiseInformation.Franchise_title__c): 'No '+v.franchiseInformation.Franchise_title__c)}</span>  
+          </aura:renderIf>
+          
+        </div>
+        <!-- end .text -->
+        
+      </div>
+</aura:component>

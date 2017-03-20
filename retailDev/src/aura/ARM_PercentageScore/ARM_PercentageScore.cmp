@@ -1,0 +1,4 @@
+<aura:component >
+	<aura:attribute name="percentage" type="Integer"></aura:attribute>
+    <canvas aura:id="canvas" width="85" height="85"></canvas>
+</aura:component>

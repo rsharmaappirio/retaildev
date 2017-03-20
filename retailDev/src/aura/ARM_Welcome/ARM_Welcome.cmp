@@ -1,0 +1,52 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global" controller="ARM_welcomeController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="firstName" type="string"></aura:attribute>
+    <aura:attribute name="photoURL" type="string"></aura:attribute>
+    <aura:attribute name="hidething" type="string" default=""></aura:attribute>
+    <aura:attribute name="device" type="String" default='desktop'  access="global"></aura:attribute>
+    
+    <!-- COMPONENT GRID -->
+    <div class="slds-grid slds-wrap slds-text-align--center welcome-box welcome-font">
+        
+      <!-- PROFILE ICON BAR COLUMN iHop-color-brand -->
+      <div class="slds-col slds-size--1-of-1  col-top-bar col-top-bar-img">
+          <div class=" slds-avatar slds-avatar--circle profile-container">
+              	<span class="slds-avatar slds-avatar--circle avatarp" style="{!'background-image:url(' + v.photoURL + ')'}">
+
+                </span>
+          </div>
+       	
+      </div>
+        
+      <!-- GREETINGS COLUMN -->
+      <div class="slds-col slds-size--1-of-1 col-welcome-message welcome-greetings">
+          Welcome back, {!v.firstName}! 
+          <div class="slds-col slds-size--1-of-1 welcometext">
+          	4 Franchises - Team member since 2005
+      	</div>
+          <div class="welcome-line"></div>
+      </div>
+  
+        
+      <!-- GRAPH COLUMN -->
+      <div class="{!'slds-col slds-size--1-of-1 col-graph ' + v.hidething}" style="margin-top: -20px;">
+           <!-- <img class="graph-img" src="{!$Resource.IHOP_Assets + '/graph75.png'}" alt=""/> -->
+          <div class="welcome-score-container">
+              <div class="slds-grid slds-wrap slds-grid--vertical-align-center">
+                  <div class="slds-col slds-size--1-of-3">
+                      <aura:if isTrue="{!v.device != 'mobile'}">
+                          <div class="slds-grid slds-grid--vertical-align-center slds-grid--align-center" >
+                              <c:ARM_PercentageScore percentage='90'></c:ARM_PercentageScore>
+                          </div>
+                      </aura:if>
+                  </div>
+                  <aura:if isTrue="{!v.device != 'mobile'}">
+                      <div class="slds-col slds-size--2-of-3 welcome-score-text-container">
+                           <div class="slds-float--left  welcome-score-text-header" >New Assesment Score</div>
+                      </div>
+                  </aura:if>
+             </div>
+          </div>
+      </div> 
+    </div>
+</aura:component>

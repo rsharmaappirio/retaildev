@@ -1,0 +1,14 @@
+/*=====================================================================
+ * (c) 2017 Appirio - A Wipro Company, Inc
+ * Name: ARM_NavBarComponent.css
+ * Description: CSS styles for ARM_NavBarComponent
+ * Created Date: Mar 07, 2017
+ * Created By: Gaurav Gupta (Appirio - A Wipro Company)
+ * 
+ * Date Modified      Modified By                  Description of the update
+ *  =====================================================================*/
+@media (max-width: 1023px){
+    .THIS .mobile-logo{
+        background-size: 100% auto !important;
+    }
+}

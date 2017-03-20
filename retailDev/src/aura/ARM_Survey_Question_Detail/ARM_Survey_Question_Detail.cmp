@@ -1,0 +1,245 @@
+<!--=====================================================================
+ * (c) 2017 Appirio - A Wipro Company, Inc
+ * Name: ARM_Survey_Question_Detail.cmp
+ * Description: Component to display Surveys/Assesments .
+ * Created Date: Mar 07, 2017
+ * Created By: Gaurav Gupta (Appirio - A Wipro Company)
+ * 
+ * Date Modified      Modified By                  Description of the update
+ *  ===================================================================== -->
+<aura:component controller="ARM_Survey_Question_Detail_Controller" implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute type="Object" name="question_detail" />
+    <aura:attribute type="Integer" name="question_number" default="1" />
+    <aura:attribute type="Integer" name="total_questions" default="1" />
+    <aura:attribute type="Object" name="questions_list" />
+    <aura:attribute type="String" name="errorMsg" default="" />
+    <aura:attribute type="Boolean" name="renderValues" default="false" />
+    <aura:attribute type="String" name="surveyName" />
+    <aura:attribute type="Object" name="dependentQuestionsMap" />
+    <aura:attribute type="String" name="surveyId" />
+    <aura:attribute type="Object[]" name="selectedQuestions" />
+    <aura:attribute type="Object[]" name="allImages" />
+    <aura:attribute type="Object" name="currentImage" />
+    <aura:attribute type="String" name="accId" />
+    <aura:handler value="{!this}" name="init" action="{!c.loadQuestions}" />
+    <aura:registerEvent name="changeComponentEvent" type="c:ARM_ChangeComponent" />
+    <aura:attribute name="showSummary" type="Boolean" default="false" />
+    <aura:registerEvent name="showHideSpinner" type="c:ARM_Spinner" />
+
+    <aura:renderIf isTrue="{!!v.showSummary}">
+        <div class="slds-page-header" role="banner">
+            <div class="slds-media">
+                <div class="slds-media__figure">
+                    
+                    <ui:outputURL alt="Go Back" 
+                                      value="javascript:void(0);" 
+                                      label="Back"
+                                      iconClass="slds-icon slds-icon--x-small slds-m-right--x-small slds-float--left icon-left-chevron--small"
+                                      title="Go Back"
+                                      click="{!c.goToSurveyPage}"/>
+
+                </div>
+                <div class="slds-media__body">
+                    <div class="slds-text-heading--small">
+                        <b>{!v.surveyName}</b>
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="slds-grid question-text">
+                <div class="slds-size--5-of-6 question-title slds-text-heading--small">
+                    {!v.question_detail.question.Question_Text__c}
+                </div>
+                <div class="slds-size--1-of-6 question-count">
+                    <p>Question</p>
+                    <span class="question-number"> {!v.question_number} </span>/{!v.total_questions}
+                </div>
+            </div>
+
+            <div class="question-detail slds-form-element">
+                <div class="question-answer">
+                    <aura:renderIf isTrue="{!v.question_detail.question.Question_Type__c == 'Select'}">
+                        <div id="{!globalId + '_radioDiv'}" class="slds-form-element__control">
+                            <aura:iteration items="{!v.question_detail.answer_options}" var="options">
+                                <label class="slds-radio">
+                                    <ui:inputRadio aura:id="selectRadioOption" text="{!options.option}" name="options" value="{!options.value}" click="{!c.removeCheck}"/>
+                                    <span class="slds-radio--faux"></span>
+                                    <span class="slds-form-element__label">{!options.option}</span>
+                                </label>
+                            </aura:iteration>
+                        </div>
+                    </aura:renderIf>
+
+                    <aura:renderIf isTrue="{!v.question_detail.question.Question_Type__c == 'Multi-Select'}">
+                        <div class="slds-form-element__control">
+                            <aura:iteration items="{!v.question_detail.answer_options}" var="options">
+                                <label class="slds-checkbox">
+                                    <ui:inputCheckbox aura:id="selectCheckboxOption" text="{!options.option}" name="option-multi" value="{!options.value}"/>
+                                    <span class="slds-checkbox--faux"></span>
+                                    <span class="slds-form-element__label">{!options.option}</span>
+                                </label>
+                            </aura:iteration>
+                        </div>
+                    </aura:renderIf>
+
+                    <aura:renderIf isTrue="{!v.question_detail.question.Question_Type__c == 'Text'}">
+                        <div class="slds-form-element__control">
+                            <div class="slds-form-element__control">
+                                <ui:inputTextArea aura:id="answerText" class="slds-textarea answerText" placeholder="Please provide your answer here..." value="{!v.question_detail.answer}" />
+                            </div>
+                        </div>
+                    </aura:renderIf>
+
+                    <aura:renderIf isTrue="{!or(v.question_detail.question.Question_Type__c == 'Count',v.question_detail.question.Question_Type__c == 'Price')}">
+                        <div class="slds-form-element__control">
+                            <aura:renderIf isTrue="{!v.question_detail.question.Question_Type__c == 'Price'}"><span>Price in Dollar($)</span></aura:renderIf>
+                            <ui:inputText class="slds-input answerText" value="{!v.question_detail.answer}" />
+                        </div>
+                    </aura:renderIf>
+
+                </div>
+                <aura:renderIf isTrue="{!v.errorMsg != ''}">
+                    <br/><br/>
+                    <div class="slds-notify_container" style="position:relative !important;">
+                        <div class="slds-notify slds-notify--alert slds-theme--error slds-theme--alert-texture" role="alert">
+                            {!v.errorMsg}
+                        </div>
+                    </div>
+                </aura:renderIf><br/>
+
+                <aura:renderIf isTrue="{! or(v.question_detail.question.Require_Photos__c,v.question_detail.question.Include_Photos__c)}">
+                    <div class="photo-div">
+                        <aura:iteration items="{!v.question_detail.photos}" var="photo">
+                            <img class="image imagePreview" src="{!'data:image/png;base64,'+photo}" />
+                        </aura:iteration><br/>
+                        <button class=" slds-button slds-button--brand  file-upload">
+                            <span class="slds-text-not-selected">
+                                <c:ARM_svg class="slds-button__icon--stateful slds-button__icon--left" xlinkHref="{!$Resource.ARM_SLDS + '/assets/icons/action-sprite/svg/symbols.svg#upload'}" />
+                                <input type="file" aura:id="fileInput" class="file-input file photo-upload" accept="image/*"  onclick="{!c.setFileToNone}" onchange="{!c.previewImage}"/> Upload Photo
+                                <!-- lightning:input doesnot work currently (its beta right now), come back again later to optimize -->
+                                <!--lightning:input aura:id="fileInput" type="file" multiple="true" class="file-input file photo-upload" label="Upload Photo" name="Upload Photo" accept="image/png, .zip" onchange="{!c.prveiewImage}"/-->
+                                
+                            </span>
+                        </button>
+
+                    </div>
+                    <div style="clear:both" /><br/>
+                </aura:renderIf>
+
+                <aura:renderIf isTrue="{!v.question_number != 1}">
+                    <ui:button class="slds-button slds-button--brand slds-float--left " press="{!c.previous}" label="Previous" labelclass="previous-button" />
+                </aura:renderIf>
+
+                <ui:button label="Next" labelClass="next-button" class="slds-button  slds-button--brand slds-float--right" press="{!c.next}" />
+
+                <div style="clear:both" />
+
+            </div>
+        </div>
+    </aura:renderIf>
+
+
+    <aura:renderIf isTrue="{!v.showSummary}">
+
+        <div class="slds-page-header" role="banner">
+            <div class="slds-media">
+                <div class="slds-media__figure">
+                    
+                    <ui:outputURL alt="Go Back" 
+                                      value="javascript:void(0);" 
+                                      label="Back"
+                                      iconClass="slds-icon slds-icon--x-small slds-m-right--x-small slds-float--left icon-left-chevron--small"
+                                      title="Go Back"
+                                      click="{!c.goToSurveyPage}"/>
+                    
+                </div>
+                <div class="slds-media__body">
+                    <div class="slds-text-heading--small">
+                        <b>Review Survey</b>
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+        <!-- /.slds-page-header -->
+
+
+
+        <div class="container">
+            <aura:iteration items="{!v.selectedQuestions}" var="question">
+                <div class="summary-div ">
+                    <p>{!question.question.Question_Text__c} </p>
+                    <aura:renderIf isTrue="{!or(question.question.Question_Type__c == 'Count',question.question.Question_Type__c == 'Price',question.question.Question_Type__c == 'Text')}">
+                        {!question.answer}
+                    </aura:renderIf>
+                    <aura:renderIf isTrue="{!!or(question.question.Question_Type__c == 'Count',question.question.Question_Type__c == 'Price',question.question.Question_Type__c == 'Text',question.question.Question_Type__c == 'Select',question.question.Question_Type__c == 'Multi-Select')}">
+                        {!question.answer}
+                    </aura:renderIf>
+                    <aura:renderIf isTrue="{!or(question.question.Question_Type__c == 'Select',question.question.Question_Type__c == 'Multi-Select')}">
+                        <aura:iteration items="{!question.answer_options}" var="options">
+                            <aura:renderIf isTrue="{!options.value}">
+                                {!options.option}<br/>
+                            </aura:renderIf>
+                        </aura:iteration>
+                    </aura:renderIf>
+                </div>
+            </aura:iteration>
+
+            <br/><br/>
+            <div style="text-align:center;">
+
+                <ui:button label="EDIT" labelClass="edit-button" class="slds-button  slds-button--brand slds-size--2-of-6" press="{!c.goToQuestionsDetailPage}" />
+                <br/><br/>
+                <ui:button label="FINISH" labelClass="finish-button" class="slds-button  slds-button--brand slds-size--2-of-6" press="{!c.saveSurvey}" />
+                <br/><br/>
+                <ui:button label="Cancel" labelClass="cancel-button" class="slds-button  slds-button--brand slds-size--2-of-6" press="{!c.toggleConfirmationModal}" />
+                <br/><br/>
+
+
+            </div>
+
+
+        </div>
+
+        <div id="modal-div" style="display:none;">
+            <div aria-hidden="true" role="alert" class="slds-modal slds-modal--prompt slds-fade-in-open">
+                <div class="slds-modal__container slds-modal--prompt">
+                    <div class="slds-modal__header slds-theme--error slds-theme--alert-texture">
+                        <!--button class="slds-button slds-button-icon-inverse slds-modal__close">
+                            <span class="slds-assistive-text">Close</span>
+                        </button-->
+                        <h2 class="slds-text-heading--medium">Cancel Survey</h2>
+                    </div>
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <div>
+                            <p>Are you sure you want to cancel this Survey? it will remove all the questions Answered.</p>
+                        </div>
+                    </div>
+                    <div class="slds-modal__footer slds-theme--default">
+                        <ui:button label="Okay" class="slds-button slds-button--neutral" press="{!c.goToSurveyPage}" />
+                        <ui:button label="Cancel" class="slds-button slds-button--neutral" press="{!c.toggleConfirmationModal}" />
+                    </div>
+                </div>
+            </div>
+            <div class="slds-backdrop slds-backdrop--open"></div>
+        </div>
+
+        <div id="success-msg-container" style="display:none;">
+            <div aria-hidden="false" role="dialog" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__menu max-small-buttons--stretch x-small-buttons--stacked div-success">
+                        <span class="slds-icon_container slds-icon_container--circle slds-icon-action-description">
+                            <c:ARM_svg class="slds-icon slds-icon--medium " xlinkHref="{!$Resource.ARM_SLDS + '/assets/icons/utility-sprite/svg/symbols.svg#check'}" />
+                        </span><br/><br/>
+                        <p>Thank You ! </p>
+                        <p>Your submission has been received </p>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-backdrop slds-backdrop--open"></div>
+        </div>
+    </aura:renderIf>
+</aura:component>

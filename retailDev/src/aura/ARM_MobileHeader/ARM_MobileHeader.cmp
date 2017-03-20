@@ -1,0 +1,19 @@
+<!--=====================================================================
+ * (c) 2017 Appirio - A Wipro Company, Inc
+ * Name: ARM_MobileHeader.cmp
+ * Description: Component used to display the banner on top for mobile display
+ * Created Date: Mar 07, 2017
+ * Created By: Gaurav Gupta (Appirio - A Wipro Company)
+ * 
+ * Date Modified      Modified By                  Description of the update
+ *  ===================================================================== -->
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="title" type="String" />
+    <aura:attribute name="navBackgroundColor" type="String" default="" />
+    <header class="mobile-header desktop-hide mobile-show" style="{!v.navBackgroundColor != '' ? 'background-color:' + v.navBackgroundColor : ''}">
+        <ui:outputURL value="javascript:void(0);" class="icons btn-icon-menu" click="{!c.showHideSideBar}"/>
+        <h2 class="title-h2">
+            <ui:outputURL value="javascript:void(0);" label="{!v.title}"/>
+        </h2>
+    </header>
+</aura:component>

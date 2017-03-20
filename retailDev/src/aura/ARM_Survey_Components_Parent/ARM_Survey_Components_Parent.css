@@ -1,0 +1,35 @@
+/*=====================================================================
+ * (c) 2017 Appirio - A Wipro Company, Inc
+ * Name: ARM_Survey_Components_Parent.css
+ * Description: CSS styles for ARM_Survey_Components_Parent
+ * Created Date: Mar 07, 2017
+ * Created By: Gaurav Gupta (Appirio - A Wipro Company)
+ * 
+ * Date Modified      Modified By                  Description of the update
+ *  =====================================================================*/
+
+.THIS .slds{
+    background-color:#000 !important;
+    height:100% !important;
+}
+.THIS .spinner-div{
+    position : fixed;
+    top : 0;
+    left : 0;
+    right : 0;
+    bottom : 0;
+    z-index : 1000;
+    width:100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.THIS .spinner{
+    position : fixed;
+    z-index:11000;
+    top : 45%;
+    left:45%;
+}
+.THIS .hide{
+    display:none;
+}

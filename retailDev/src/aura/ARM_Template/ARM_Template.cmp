@@ -1,0 +1,45 @@
+<!--=====================================================================
+ * (c) 2017 Appirio - A Wipro Company, Inc
+ * Name: ARM_Template.cmp
+ * Description: Top-most Parent template used in the retail franchise community
+ * Created Date: Mar 07, 2017
+ * Created By: Gaurav Gupta (Appirio - A Wipro Company)
+ * 
+ * Date Modified      Modified By                  Description of the update
+ *  ===================================================================== -->
+
+<aura:component controller="ARM_TemplateController" implements="forceCommunity:themeLayout" access="global">
+
+    <aura:attribute name="search" type="Aura.Component[]" required="false" />
+    <aura:attribute name="profileMenu" type="Aura.Component[]" required="false" />
+    <aura:attribute name="navBar" type="Aura.Component[]" required="false" />
+    <aura:attribute name="newHeader" type="Aura.Component[]" required="false" />
+    <ltng:require scripts="{!$Resource.ARM_TemplateResources + '/js/jquery-2.1.4.min.js'}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="c:ARM_Show_Sub_Nav" action="{!c.showHideSubNav}" />
+    <aura:attribute name="applyMargin" type="Boolean" default="true" />
+    <aura:handler event="c:ARM_Spinner" action="{!c.toggle}" />
+    <aura:handler event="aura:doneRendering" action="{!c.doneRendering}" />
+    <aura:handler event="force:refreshView" action="{!c.refreshViewOnStandardChange}" />
+
+
+    <c:ARM_MobileHeader aura:id="MobileHeader" title="Home" />
+    <div class="mask-layer hide"></div>
+    <c:ARM_NavBarComponent aura:id="NavBar" />
+    <div class="wrapper home-wrapper left70">
+        <div class="main-container">
+            <div class="contents ">
+                <c:ARM_SubNavBarComponent aura:id="SubNavBar" />
+                <div class="banner-area add-margin-left">
+                    <c:ARM_Branding aura:id="Branding" />
+                </div>
+                <div>
+                    {!v.body}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <lightning:spinner aura:id="spinner" alternativeText="Loading ... " class="slds-hide" />
+
+</aura:component>
