@@ -1,0 +1,56 @@
+<!--=====================================================================
+ * (c) 2017 Appirio - A Wipro Company, Inc
+ * Name: ARM_Survey_List.cmp
+ * Description: Surveys related to Account component on Assesment 
+ * Created Date: Mar 07, 2017
+ * Created By: Gaurav Gupta (Appirio - A Wipro Company)
+ * 
+ * Date Modified      Modified By                  Description of the update
+ *  ===================================================================== -->
+<aura:component controller="ARM_Survey_List_Controller" implements="force:appHostable" access="global">
+    <aura:handler value="{!this}" name="init" action="{!c.loadSurveys}" />
+    <aura:attribute name="accId" type="String" />
+    <aura:attribute name="surveyList" type="ARM_Survey__c[]" />
+    <aura:attribute name="showRecordNotFound" type="Boolean" default="false" />
+
+    <div class="slds-page-header" role="banner">
+        <div class="slds-media">
+            <div class="slds-media__figure">
+                
+                <ui:outputURL alt="Go Back" 
+                                      value="javascript:void(0);" 
+                                      label="Back"
+                                      iconClass="slds-icon slds-icon--x-small slds-m-right--x-small slds-float--left icon-left-chevron--small"
+                                      title="Go Back"
+                                      click="{!c.goToAccountPage}"/>
+                
+            </div>
+            <div class="slds-media__body">
+                <div class="slds-text-heading--small">
+                    <b>Please click on any survey to complete it.</b>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+
+
+    <ul class="slds-list--vertical slds-has-dividers--bottom-space slds-has-block-links--space survey-list">
+        <aura:iteration items="{!v.surveyList}" var="survey">
+            <li class="slds-list__item" data-id="{!survey.Id}">
+                <ui:outputURL aura:id="surveyLink" alt="{!survey.Id}" disabled="false" value="javascript:void(0);" label="{!survey.Name}" title="{!survey.Name}" iconClass="slds-icon slds-icon--small slds-float--right icon-right-chevron" click="{!c.goToSurveyQuestionsPage}">
+
+                </ui:outputURL>
+            </li>
+        </aura:iteration>
+    </ul><br/><br/>
+
+    <aura:renderIf isTrue="{!v.showRecordNotFound}">
+        <div class="slds-notify_container" style="position:relative !important;">
+            <div class="slds-notify slds-notify--alert slds-theme--error slds-theme--alert-texture" role="alert">
+                Sorry!! No Survey found for this account
+            </div>
+        </div>
+    </aura:renderIf>
+
+</aura:component>

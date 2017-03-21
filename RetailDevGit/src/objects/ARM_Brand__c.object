@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Appirio Retail Management (ARM) Object</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Brand_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Brand Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Classification</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Group / Type</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Brand</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Brand Variant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Individual Variant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Volume</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Configuration &amp; Container</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>USA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Canada</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Hierarchy_Code__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Full Hierarchy Code</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Level__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK(Hierarchy_Code__c), &quot;NH&quot;,
+IF(  ISPICKVAL( Brand_Type__c , &quot;Classification&quot;), &quot;L1&quot;,  
+        IF(  ISPICKVAL( Brand_Type__c , &quot;Group / Type&quot;), &quot;L2&quot;, 
+             IF(  ISPICKVAL( Brand_Type__c , &quot;Brand&quot;), &quot;L3&quot;, 
+            	  IF(  ISPICKVAL( Brand_Type__c , &quot;Brand Variant&quot;), &quot;L4&quot;, 
+                	IF(  ISPICKVAL( Brand_Type__c , &quot;Individual Variant&quot;), &quot;L5&quot;, 
+			     IF(  ISPICKVAL( Brand_Type__c , &quot;Volume&quot;), &quot;L6&quot;, &quot;L7&quot;)))))))</formula>
+        <label>Level #</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Brand</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Brand Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>ARM Brands</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

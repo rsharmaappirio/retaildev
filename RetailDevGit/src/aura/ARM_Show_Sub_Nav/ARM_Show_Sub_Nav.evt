@@ -1,0 +1,14 @@
+<!--=====================================================================
+ * (c) 2017 Appirio - A Wipro Company, Inc
+ * Name: ARM_Show_Sub_Nav.evt
+ * Description: Event used to show the sub navigation bar on the left .
+ * Created Date: Mar 07, 2017
+ * Created By: Gaurav Gupta (Appirio - A Wipro Company)
+ * 
+ * Date Modified      Modified By                  Description of the update
+ *  ===================================================================== -->
+<aura:event type="APPLICATION" description="Event template" >
+  <aura:attribute type="Boolean" name="SubNavVisibility" />
+  <aura:attribute type="String" name="selectedNavigationId" /> 
+  <aura:attribute type="String" name="selectedNavigationName" />
+</aura:event>

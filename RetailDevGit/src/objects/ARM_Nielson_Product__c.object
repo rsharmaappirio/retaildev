@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Appirio Retail Management (ARM) Object</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Read</externalSharingModel>
+    <fields>
+        <fullName>Diageo_Brand__c</fullName>
+        <externalId>false</externalId>
+        <label>Diageo Segment</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>BEER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BRANDY/COGNAC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CIDER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>COOLERS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CORDIALS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GIN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GRAIN ALCOHOL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MULTI COMBO PACKS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PAB</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>POUCH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PREPARED COCKTAILS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RUM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SHANDY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TEQUILA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VODKA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WHISKEY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NONE</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Diageo_Category_Formula__c</fullName>
+        <description>Converted nielsen category to diageo category</description>
+        <externalId>false</externalId>
+        <formula>CASE( TEXT(Nielsen_Category__c)
+,&apos;APERTIF&apos;,&apos;NOT DEFINED&apos;
+,&apos;BOURBON&apos;,&apos;NA WHISKEY&apos;
+,&apos;BOURBON-BLENDED&apos;,&apos;NA WHISKEY&apos;
+,&apos;BOURBON-STRAIGHT/BONDED&apos;,&apos;NA WHISKEY&apos;
+,&apos;BRANDY/COGNAC&apos;,&apos;BRANDY/COGNAC&apos;
+,&apos;CANADIAN WHISKEY&apos;,&apos;NA WHISKEY&apos;
+,&apos;COCKTAILS&apos;,&apos;COCKTAILS&apos;
+,&apos;CORDIALS &amp; PROPRIETARY LIQUEUR&apos;,&apos;CORDIALS &amp; PROPRIETARY LIQUEUR&apos;
+,&apos;FLAVORED REFRESHMENT&apos;,&apos;NOT DEFINED&apos;
+,&apos;GIN&apos;,&apos;GIN&apos;
+,&apos;IRISH WHISKEY&apos;,&apos;IRISH WHISKEY&apos;
+,&apos;NOT DEFINED&apos;,&apos;NOT DEFINED&apos;
+,&apos;REMAINING WHISKEY&apos;,&apos;NA WHISKEY&apos;
+,&apos;REPORTED UNCLASSIFIABLE UPC\&apos;S&apos;,&apos;NOT DEFINED&apos;
+,&apos;RUM&apos;,&apos;RUM&apos;
+,&apos;SCOTCH&apos;,&apos;SCOTCH&apos;
+,&apos;TEQUILA&apos;,&apos;TEQUILA&apos;
+,&apos;VODKA&apos;,&apos;VODKA&apos;
+,&apos;WHISKEY&apos;,&apos;WHISKEY&apos;
+,&apos;Wine Based&apos;,&apos;NOT DEFINED&apos;
+,&apos;DOMESTIC DRY TABLE&apos;,&apos;WINE&apos;
+,&apos;FORTIFIED WINE&apos;,&apos;WINE&apos;
+,&apos;IMPORTED DRY TABLE&apos;,&apos;WINE&apos;
+,&apos;SPARKLING WINE&apos;,&apos;WINE&apos;
+,&apos;STILL WINE&apos;,&apos;WINE&apos;
+,&apos;SWEET DESSERT DOMESTIC&apos;,&apos;WINE&apos;
+,&apos;WINE BASED&apos;,&apos;WINE&apos;
+, TEXT(Nielsen_Category__c))</formula>
+        <label>Diageo Category</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nielsen_Brand_Family__c</fullName>
+        <externalId>false</externalId>
+        <label>Brand Family</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nielsen_Brand_Variant__c</fullName>
+        <externalId>false</externalId>
+        <label>Brand Extension</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nielsen_Brand__c</fullName>
+        <externalId>false</externalId>
+        <label>Brand Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nielsen_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Category</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Diageo_Brand__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ALE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>APERTIF</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BEER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BOURBON-BLENDED</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BOURBON-STRAIGHT/BONDED</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BRANDY/COGNAC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CANADIAN WHISKEY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>COCKTAILS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>COOLER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CORDIALS &amp; PROPRIETARY LIQUEUR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DOMESTIC DRY TABLE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FLAVORED REFRESHMENT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GIN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IMPORTED DRY TABLE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IRISH WHISKEY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>KOSHER TABLE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LIGHT BEER &apos;LOW CAL/ALCOHOL&apos;</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MALT LIQUOR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NEAR BEER/MALT BEVERAGE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>REMAINING WHISKEY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>REPORTED UNCLASSIFIABLE UPC&apos;S</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RUM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SAKE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SANGRIA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SCOTCH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>STOUT AND PORTER</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SWEET DESSERT DOMESTIC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SWEET DESSERT IMPORTED</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TEQUILA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VERMOUTH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VODKA</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>PREPARED COCKTAILS</controllingFieldValue>
+                <controllingFieldValue>SHANDY</controllingFieldValue>
+                <controllingFieldValue>VODKA</controllingFieldValue>
+                <controllingFieldValue>NONE</controllingFieldValue>
+                <controllingFieldValue>COOLERS</controllingFieldValue>
+                <controllingFieldValue>CORDIALS</controllingFieldValue>
+                <controllingFieldValue>PAB</controllingFieldValue>
+                <controllingFieldValue>POUCH</controllingFieldValue>
+                <valueName>COCKTAILS</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>PREPARED COCKTAILS</controllingFieldValue>
+                <controllingFieldValue>RUM</controllingFieldValue>
+                <controllingFieldValue>TEQUILA</controllingFieldValue>
+                <controllingFieldValue>VODKA</controllingFieldValue>
+                <controllingFieldValue>WHISKEY</controllingFieldValue>
+                <controllingFieldValue>BRANDY/COGNAC</controllingFieldValue>
+                <controllingFieldValue>CORDIALS</controllingFieldValue>
+                <controllingFieldValue>GRAIN ALCOHOL</controllingFieldValue>
+                <valueName>CORDIALS &amp; PROPRIETARY LIQUEUR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>PREPARED COCKTAILS</controllingFieldValue>
+                <controllingFieldValue>RUM</controllingFieldValue>
+                <controllingFieldValue>TEQUILA</controllingFieldValue>
+                <controllingFieldValue>VODKA</controllingFieldValue>
+                <controllingFieldValue>WHISKEY</controllingFieldValue>
+                <controllingFieldValue>NONE</controllingFieldValue>
+                <controllingFieldValue>BEER</controllingFieldValue>
+                <controllingFieldValue>BRANDY/COGNAC</controllingFieldValue>
+                <controllingFieldValue>CORDIALS</controllingFieldValue>
+                <controllingFieldValue>GIN</controllingFieldValue>
+                <controllingFieldValue>MULTI COMBO PACKS</controllingFieldValue>
+                <valueName>REPORTED UNCLASSIFIABLE UPC&apos;S</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>PREPARED COCKTAILS</controllingFieldValue>
+                <controllingFieldValue>RUM</controllingFieldValue>
+                <controllingFieldValue>VODKA</controllingFieldValue>
+                <controllingFieldValue>WHISKEY</controllingFieldValue>
+                <valueName>VODKA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RUM</controllingFieldValue>
+                <controllingFieldValue>WHISKEY</controllingFieldValue>
+                <valueName>REMAINING WHISKEY</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>RUM</controllingFieldValue>
+                <controllingFieldValue>CORDIALS</controllingFieldValue>
+                <valueName>RUM</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>TEQUILA</controllingFieldValue>
+                <valueName>TEQUILA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>WHISKEY</controllingFieldValue>
+                <valueName>BOURBON-BLENDED</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>WHISKEY</controllingFieldValue>
+                <valueName>BOURBON-STRAIGHT/BONDED</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>WHISKEY</controllingFieldValue>
+                <valueName>CANADIAN WHISKEY</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>WHISKEY</controllingFieldValue>
+                <valueName>IRISH WHISKEY</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>WHISKEY</controllingFieldValue>
+                <valueName>SCOTCH</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>NONE</controllingFieldValue>
+                <valueName>APERTIF</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>NONE</controllingFieldValue>
+                <controllingFieldValue>BEER</controllingFieldValue>
+                <controllingFieldValue>CIDER</controllingFieldValue>
+                <controllingFieldValue>COOLERS</controllingFieldValue>
+                <controllingFieldValue>PAB</controllingFieldValue>
+                <controllingFieldValue>POUCH</controllingFieldValue>
+                <valueName>COOLER</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>NONE</controllingFieldValue>
+                <valueName>DOMESTIC DRY TABLE</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>NONE</controllingFieldValue>
+                <controllingFieldValue>CIDER</controllingFieldValue>
+                <controllingFieldValue>COOLERS</controllingFieldValue>
+                <controllingFieldValue>POUCH</controllingFieldValue>
+                <valueName>FLAVORED REFRESHMENT</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>NONE</controllingFieldValue>
+                <valueName>IMPORTED DRY TABLE</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>NONE</controllingFieldValue>
+                <valueName>KOSHER TABLE</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>NONE</controllingFieldValue>
+                <valueName>SAKE</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>NONE</controllingFieldValue>
+                <valueName>SANGRIA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>NONE</controllingFieldValue>
+                <valueName>SWEET DESSERT DOMESTIC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>NONE</controllingFieldValue>
+                <valueName>SWEET DESSERT IMPORTED</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>NONE</controllingFieldValue>
+                <valueName>VERMOUTH</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BEER</controllingFieldValue>
+                <valueName>ALE</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BEER</controllingFieldValue>
+                <controllingFieldValue>PAB</controllingFieldValue>
+                <valueName>BEER</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BEER</controllingFieldValue>
+                <valueName>LIGHT BEER &apos;LOW CAL/ALCOHOL&apos;</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BEER</controllingFieldValue>
+                <valueName>MALT LIQUOR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BEER</controllingFieldValue>
+                <valueName>NEAR BEER/MALT BEVERAGE</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BEER</controllingFieldValue>
+                <valueName>STOUT AND PORTER</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>BRANDY/COGNAC</controllingFieldValue>
+                <valueName>BRANDY/COGNAC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>CORDIALS</controllingFieldValue>
+                <controllingFieldValue>GIN</controllingFieldValue>
+                <valueName>GIN</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Nielsen_Size__c</fullName>
+        <externalId>false</externalId>
+        <label>Base Size</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0.05L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.07L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.094L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.1L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.103L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.118L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.186L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.187L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.1875L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.2L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.275L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.295L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.3L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.33L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.355L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.357L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.375L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.44L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.473L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.5L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.569L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.591L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.65L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.695L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.7L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.71L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.75L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.946L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>0.98L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>1.0L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>1.14L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>1.5L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>1.75L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2.0L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>3.0L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>5.25L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>9.46L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>20.0L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>50.0L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>58.67L</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Nielsen_Supplier__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Entrps High</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nielsen_Unit__c</fullName>
+        <externalId>false</externalId>
+        <label>Multi Pack</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UPC_CODE__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Universal Product Code</description>
+        <externalId>true</externalId>
+        <inlineHelpText>UPC Code from Nielsen.  This is the field that is used by the mobile app to identify products.  However, the UPC should be entered in the required UPC field as well for use in SFDC.</inlineHelpText>
+        <label>UPC</label>
+        <length>25</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>UPC_Code_11_Digit__c</fullName>
+        <externalId>false</externalId>
+        <formula>RIGHT(UPC_CODE__c , 11)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>UPC Code 11 Digit</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UPC_DESC__c</fullName>
+        <externalId>false</externalId>
+        <label>UPC Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UPC_Length__c</fullName>
+        <externalId>false</externalId>
+        <formula>LEN(UPC_CODE__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>UPC Length</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Nielsen Product</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Nielsen_Products</fullName>
+        <columns>NAME</columns>
+        <columns>UPC_DESC__c</columns>
+        <columns>Nielsen_Brand__c</columns>
+        <columns>Nielsen_Brand_Family__c</columns>
+        <columns>Nielsen_Size__c</columns>
+        <columns>Nielsen_Category__c</columns>
+        <columns>Diageo_Category_Formula__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Nielsen Products</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Nielsen_Productsnew</fullName>
+        <columns>NAME</columns>
+        <columns>UPC_DESC__c</columns>
+        <columns>Nielsen_Brand__c</columns>
+        <columns>Nielsen_Brand_Family__c</columns>
+        <columns>Nielsen_Size__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <filters>
+            <field>Diageo_Category_Formula__c</field>
+            <operation>equals</operation>
+            <value>SPIRITS</value>
+        </filters>
+        <label>All Nielsen Products new</label>
+    </listViews>
+    <nameField>
+        <label>UPC</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Nielsen Products</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>UPC_DESC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Nielsen_Brand__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Nielsen_Brand_Family__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Nielsen_Size__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>UPC_CODE__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>UPC_DESC__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>UPC_CODE__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>UPC_DESC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Nielsen_Brand__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Nielsen_Brand_Variant__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Read</sharingModel>
+</CustomObject>

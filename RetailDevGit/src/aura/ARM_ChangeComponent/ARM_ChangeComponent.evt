@@ -1,0 +1,18 @@
+<!--=====================================================================
+ * (c) 2017 Appirio - A Wipro Company, Inc
+ * Name: ARM_ChangeComponent.evt
+ * Description: Custom event to load various other lighting components.
+ *				This is used in many other components of the application.
+ * Created Date: Mar 07, 2017
+ * Created By: Gaurav Gupta (Appirio - A Wipro Company)
+ * 
+ * Date Modified      Modified By                  Description of the update
+ *  ===================================================================== -->
+
+<aura:event type="APPLICATION" description="Fire the event from any component, app will catch it and will show the component passed as parameter" >
+    <aura:attribute type="Object" name="questions_list" />
+    <aura:attribute type="String" name="Comp_to_Load" />
+    <aura:attribute type="String" name="surveyId" />
+    <aura:attribute type="String" name="accId" />
+    <aura:attribute type="String" name="selectedQuestions" />
+</aura:event>

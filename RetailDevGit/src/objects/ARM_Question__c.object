@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Appirio Retail Management (ARM) Object</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Answer_Options__c</fullName>
+        <defaultValue>&quot;YES, NO&quot;</defaultValue>
+        <description>Options for picklist question types</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter comma separated values that should show as options in the picklist</inlineHelpText>
+        <label>Answer Options</label>
+        <length>50000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Conditional_Answer_Brand__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Conditional Answer Brand</label>
+        <referenceTo>ARM_Brand__c</referenceTo>
+        <relationshipLabel>Survey Question (Conditional Answer Brand)</relationshipLabel>
+        <relationshipName>Survey_Question1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Conditional_Answer__c</fullName>
+        <description>If this question is related to a parent question, this is the answer that will lead to this question being displayed in the survey.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this question is related to a parent question, this is the answer that will lead to this question being displayed in the survey.</inlineHelpText>
+        <label>Conditional Answer</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Create_Case__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>If checked, and a survey result answers with a No, then a case will be created.</inlineHelpText>
+        <label>Create Case ?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Goal_Brand__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Goal Brand</label>
+        <referenceTo>ARM_Brand__c</referenceTo>
+        <relationshipLabel>ARM Survey Question</relationshipLabel>
+        <relationshipName>ARM_Survey_Question</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Goal_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Goal Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Goal_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Goal Type</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Display</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Feature</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Distribution</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Point of Distribution</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Shelf Sets</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cold Box</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ad Execution</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>QD / Volume</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Menu</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sampling</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Staff Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>General</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vendor Quality</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Include_None_of_the_Above__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>For Picklists and Multi-Select picklists, we want an option to add &apos;None of the Above&apos; to the list where appropriate</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Include if you want the user to have the option to select None of the Above</inlineHelpText>
+        <label>Include &apos;None of the Above&apos;</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Include_Photos__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Include Photos</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Goal__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Goal</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Label_for_Add_l_Comments__c</fullName>
+        <description>If we are going to capture additional comments for this question, then this is the label that should be displayed above the comments textarea.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If we are going to capture additional comments for this question, then this is the label that should be displayed above the comments textarea.</inlineHelpText>
+        <label>Label for Add&apos;l Comments</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Legacy_Id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>ID used for upserts with relationships for data being loaded from another org</description>
+        <externalId>true</externalId>
+        <label>Legacy Id</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Max_Goal_Score__c</fullName>
+        <description>Max goal score total</description>
+        <externalId>false</externalId>
+        <label>Max Goal Score</label>
+        <precision>7</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Max_Score__c</fullName>
+        <description>The max possible score for this question.  Single-select picklist will be the MAX value of all of the answer options and multi-select picklist will be the SUM of all of the answer scores.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The max possible score for this question.  Single-select picklist will be the MAX value of all of the answer options and multi-select picklist will be the SUM of all of the answer scores.</inlineHelpText>
+        <label>Max Score</label>
+        <precision>7</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NEXT_Question__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The next question in the screen flow if there are no conditional questions OR if all conditional questions are complete.</description>
+        <externalId>false</externalId>
+        <label>NEXT Question</label>
+        <referenceTo>ARM_Question__c</referenceTo>
+        <relationshipLabel>Previous Questions</relationshipLabel>
+        <relationshipName>Follows_these_questions</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Parent_Question__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Conditional questions have a PARENT question.   The parent question is answered and if the answer matches, then this child question is asked.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Conditional questions have a PARENT question.   The parent question is answered and if the answer matches, then this child question is asked.</inlineHelpText>
+        <label>Parent Question</label>
+        <referenceTo>ARM_Question__c</referenceTo>
+        <relationshipLabel>Conditional Questions</relationshipLabel>
+        <relationshipName>ARM_Question</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Question_Number__c</fullName>
+        <description>The nested number of the question</description>
+        <externalId>false</externalId>
+        <label>Question Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Question_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Question Text</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Question_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Question Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Count</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Price</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Text</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Select</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Multi-Select</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Require_Photos__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Require Photos</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Survey__c</fullName>
+        <description>Survey header object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey header object</inlineHelpText>
+        <label>Survey</label>
+        <referenceTo>ARM_Survey__c</referenceTo>
+        <relationshipName>ARM_Question</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>X18_Digit_Question_ID__c</fullName>
+        <description>18 digits DD Survey Question ID</description>
+        <externalId>false</externalId>
+        <formula>casesafeid(Id)</formula>
+        <label>18 Digit Question ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Survey Question</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>Q-{0000}</displayFormat>
+        <label>Question Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>ARM Survey Question</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Question_Text__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Survey__c</lookupDialogsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

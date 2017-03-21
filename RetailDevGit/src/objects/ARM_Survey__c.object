@@ -1,0 +1,1341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Appirio Retail Management (ARM) Object</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Account_Segmentation__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Segmentation</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>A</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>B</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>C</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>D</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>ARM_Survey</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>Active</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Category</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Multicultural</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>High-end Champagne</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NiteClub</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VONS - 1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VONS - 2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VONS - 3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VONS - 4</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VONS - 5</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SAFEWAY - 1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SAFEWAY - 2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SAFEWAY - 3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SAFEWAY - 4</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SAFEWAY - 5</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Enable_Edit_on_Review_Screen__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>if unchecked, then the &quot;edit&quot; button will be disabled or removed from the mobile app review screen</description>
+        <externalId>false</externalId>
+        <inlineHelpText>if unchecked, then the &quot;edit&quot; button will be disabled or removed from the mobile app review screen</inlineHelpText>
+        <label>Enable Edit on Review Screen?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>End_Date__c</fullName>
+        <description>Survey end date</description>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>External_Survey_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>ID from legacy system used to migrate surveys from one org to another. E.g. sk2 to production.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>ID from legacy system used to migrate surveys from one org to another. E.g. sk2 to production.</inlineHelpText>
+        <label>External Survey ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>First_Question__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The very first question in the survey.  Note that this is NOT relevant for product-based surveys that always start with the barcode scan.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The very first question in the survey.  Note that this is NOT relevant for product-based surveys that always start with the barcode scan.</inlineHelpText>
+        <label>First Question</label>
+        <referenceTo>ARM_Question__c</referenceTo>
+        <relationshipName>First_Question</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Grading_Scale__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Will this survey use a Grading Scale?  If this is populated, we assume the related questions&apos; answers will be json objects that include the weight for each answer.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Will this survey use a Grading Scale?  If this is populated, we assume the related questions&apos; answers will be json objects that include the weight for each answer.</inlineHelpText>
+        <label>Grading Scale</label>
+        <referenceTo>ARM_Grading_Scale__c</referenceTo>
+        <relationshipName>ARM_Surveys</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IsParent__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Flag if the survey record is a parent survey with chapter-surveys</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Flag if the survey record is a parent survey with chapter-surveys</inlineHelpText>
+        <label>IsParent</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Marketing_Group__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Marketing Group</label>
+        <referenceTo>ARM_Marketing_Group__c</referenceTo>
+        <relationshipName>ARM_Surveys</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>National_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>National Account</label>
+        <referenceTo>ARM_National_Account_Group__c</referenceTo>
+        <relationshipName>ARM_Surveys</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>National_Goal__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Checked if this is a national goal; Unchecked if local goal</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Checked if this is a national goal; Unchecked if local goal</inlineHelpText>
+        <label>National Goal</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Parent_Survey__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Parent object link for child chapter-surveys</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Parent object link for child chapter-surveys</inlineHelpText>
+        <label>Parent Survey</label>
+        <referenceTo>ARM_Survey__c</referenceTo>
+        <relationshipName>ARM_Surveys</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sector__c</fullName>
+        <externalId>false</externalId>
+        <label>Sector</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ALL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OFF PREMISE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ON PREMISE</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <description>Survey start date</description>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <externalId>false</externalId>
+        <label>State</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ALL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AK</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AZ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>AR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>DE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ID</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>IA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>KS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>KY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ME</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NE</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NJ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NY</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ND</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OH</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OK</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>OR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SD</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TN</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TX</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>UT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>VA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WI</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>WY</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Sub_channel__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub-channel</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ALL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Adult Entertainment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Airline</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Amusement NA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Apparel/Accessories</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Athletic Store</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Auto Aftermarket</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Auto Repair Service</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Banquet Halls</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bar/Nightclub</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Beauty Salon/Barber Shop</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Beer Specialty Store</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Book Shop</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Campground</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Car Wash</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cards/Gifts/Books</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Casino</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Casual</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Casual Nightclub</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Caterer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client Internal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Concessionaire NA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Consumer Electronics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Conventional</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Craft/Hobby</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cruise/ Yacht</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS Gas Only</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CS Military Shopette</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Deli</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Department Store</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dining</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Discount Department Store</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Distributor/Sub-Distributor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ethnic Markets</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fine</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Food Service</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Food Services</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Full Service</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Gambling NA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>General Merchandise</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Gift/Variety</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Golf/ Country Club</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Home Improvement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Home/Bed/Bath</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hotel NA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>House Account</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>House Accounts*</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hypermart</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Institution</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Internet Retailer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Irish Pub</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Limited/Grocery</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Liquor Store Military</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lodging</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Luxury</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Marina</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Meat/Fish/Fruit/Bakery</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Military</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Military Club</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Military Commissary</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Military Exchange</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Neighborhood</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>News Stand</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Office Building</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Office Supplies</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Officer Clubs</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Entertainment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Transportation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pet Supplies</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pipe/Cigar/Tobacco</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pool/ Bowling</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Premium Bar</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Premium Nightclub</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Private Club</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rail/ Land</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Recreation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Residential Address</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Resort/ Convention Properties</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Restaurant NA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rx only/Small Independents</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Small Grocery</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Special Event</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sporting Club NA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sporting Goods</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sports</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Stadium/ Arena</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Storage/Warehouse</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Super Store</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Supercenter</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Superette</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Supermarket</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Theater</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Theme Park</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Theme Rest.</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trading Post</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Undetermined</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Variety Store</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vending Distributor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Warehouse</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wholesaler</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wine Specialty Store</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wineries/Vineyards</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Survey_Type_Editable__c</fullName>
+        <description>Product surveys have a barcode scan and can loop through and answer questions about many products; Non-product surveys do NOT have a barcode scan.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Product surveys have a barcode scan and can loop through and answer questions about many products; Non-product surveys do NOT have a barcode scan.</inlineHelpText>
+        <label>Survey Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Scan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Non Scan</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Survey_Type__c</fullName>
+        <description>Product surveys have a barcode scan and can loop through and answer questions about many products; Non-product surveys do NOT have a barcode scan.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Product surveys have a barcode scan and can loop through and answer questions about many products; Non-product surveys do NOT have a barcode scan.</inlineHelpText>
+        <label>Survey Type - Orig</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TDLinx_Acct_Level_E__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>TDLinx Acct Level E</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>ARM_Surveys</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Total_Possible_Score_Rollup__c</fullName>
+        <description>Rollup SUM of maxScore of all questions</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rollup SUM of maxScore of all questions</inlineHelpText>
+        <label>Total Possible Score Rollup</label>
+        <summarizedField>ARM_Question__c.Max_Score__c</summarizedField>
+        <summaryForeignKey>ARM_Question__c.Survey__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_Possible_Score__c</fullName>
+        <description>Rollup of all question maxScores minus manual adjustments</description>
+        <externalId>false</externalId>
+        <formula>Total_Possible_Score_Rollup__c -  Total_Possible_Score_manual_adjustment__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Rollup of all question maxScores minus manual adjustments</inlineHelpText>
+        <label>Total Possible Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Possible_Score_manual_adjustment__c</fullName>
+        <description>Use this field for a manual adjustment to subtract some values from the automatic rollup total score.  This is relevant when you have dependent questions that are mutually exclusive from their parent question.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Use this field for a manual adjustment to subtract some values from the automatic rollup total score.  This is relevant when you have dependent questions that are mutually exclusive from their parent question.</inlineHelpText>
+        <label>Total Possible Score - manual adjustment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Trade_Channel__c</fullName>
+        <externalId>false</externalId>
+        <label>Trade Channel</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ALL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bar/Nightclub</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Category Killer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Caterer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cigarette Outlet</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Convenience Store</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Dining</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Drug</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Grocery</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Liquor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lodging</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mass Merchandiser</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Military</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Off Premise</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other On-Premise</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Recreation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Transportation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Voluntary Wholesaler</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wholesale Club</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Universal_Survey__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Check this box if a survey should be a default survey (available for offline) and also active.  Unchecking the box will make this survey NOT display in the DD Survey mobile app.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box if a survey should be a default survey (available for offline) and also active.  Unchecking the box will make this survey NOT display in the DD Survey mobile app.</inlineHelpText>
+        <label>Universal Survey</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Zip_Codes__c</fullName>
+        <description>Comma-delimited zip codes for which this survey is relevant.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Comma-delimited zip codes for which this survey is relevant.</inlineHelpText>
+        <label>Zip Codes</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Assessment</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Portal_Admins</fullName>
+        <booleanFilter>1 or 2 or 3 or 4 or 5 or 6</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Active__c</columns>
+        <columns>Universal_Survey__c</columns>
+        <columns>State__c</columns>
+        <columns>Sector__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>End_Date__c</columns>
+        <columns>Parent_Survey__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>OWNER.FIRST_NAME</field>
+            <operation>equals</operation>
+            <value>Pete</value>
+        </filters>
+        <filters>
+            <field>OWNER.LAST_NAME</field>
+            <operation>equals</operation>
+            <value>Zaker</value>
+        </filters>
+        <filters>
+            <field>OWNER.FIRST_NAME</field>
+            <operation>equals</operation>
+            <value>Jason</value>
+        </filters>
+        <filters>
+            <field>OWNER.LAST_NAME</field>
+            <operation>equals</operation>
+            <value>Bazin</value>
+        </filters>
+        <filters>
+            <field>CREATEDBY_USER</field>
+            <operation>equals</operation>
+            <value>Jason Bazin</value>
+        </filters>
+        <filters>
+            <field>CREATEDBY_USER</field>
+            <operation>equals</operation>
+            <value>Pete Zaker</value>
+        </filters>
+        <label>Portal Admins</label>
+    </listViews>
+    <listViews>
+        <fullName>Todays_results</fullName>
+        <columns>NAME</columns>
+        <columns>Active__c</columns>
+        <columns>Universal_Survey__c</columns>
+        <columns>IsParent__c</columns>
+        <columns>Survey_Type__c</columns>
+        <columns>State__c</columns>
+        <columns>Category__c</columns>
+        <columns>Sub_channel__c</columns>
+        <columns>Sector__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>Trade_Channel__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>TODAYs Surveys</label>
+    </listViews>
+    <listViews>
+        <fullName>april2015</fullName>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Active__c</columns>
+        <columns>Universal_Survey__c</columns>
+        <columns>State__c</columns>
+        <columns>Sector__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>End_Date__c</columns>
+        <columns>Parent_Survey__c</columns>
+        <columns>Grading_Scale__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>End_Date__c</field>
+            <operation>lessThan</operation>
+            <value>7/1/2015</value>
+        </filters>
+        <filters>
+            <field>End_Date__c</field>
+            <operation>greaterThan</operation>
+            <value>2/28/2015</value>
+        </filters>
+        <label>Mar-Apr-May 2015 surveys</label>
+    </listViews>
+    <nameField>
+        <label>Survey Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Assessments</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>ARM_Survey_End_date_gr_than_start_date</fullName>
+        <active>true</active>
+        <description>The end date must be greater than the start date.</description>
+        <errorConditionFormula>End_Date__c &lt;  Start_Date__c</errorConditionFormula>
+        <errorMessage>The end date must be later than the start date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ARM_Survey_name_can_only_be_30_chars</fullName>
+        <active>true</active>
+        <description>only 30 characters fit on the app survey screen (portrait mode on iPhone)</description>
+        <errorConditionFormula>LEN( Name ) &gt; 30</errorConditionFormula>
+        <errorMessage>The Survey name can only be 30 characters because of the limited width of the screen on a phone.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ARM_Survey_zip_no_spaces</fullName>
+        <active>true</active>
+        <description>Zip code can NOT have spaces</description>
+        <errorConditionFormula>CONTAINS( Zip_Codes__c , &quot; &quot;)</errorConditionFormula>
+        <errorMessage>Zip codes cannot have spaces.  Please us a comma delimiter to separate multiple zip codes</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Deep_Clone</fullName>
+        <availability>online</availability>
+        <description>Deep Clone button for cloning survey and survey questions</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Deep Clone</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>requireCssFile(&apos;/resource/ARM_JQuery_UI/css/ui-lightness/jquery-ui-1.10.4.custom.min.css&apos;); 
+
+function requireCssFile(filename) 
+{ 
+var fileref = document.createElement(&apos;link&apos;); 
+fileref.setAttribute(&apos;rel&apos;, &apos;stylesheet&apos;); 
+fileref.setAttribute(&apos;type&apos;, &apos;text/css&apos;); 
+fileref.setAttribute(&apos;href&apos;, filename); 
+document.getElementsByTagName(&apos;head&apos;)[0].appendChild(fileref); 
+} 
+
+{!REQUIRESCRIPT(&quot;/resource/JQuery_UI/js/jquery-1.10.2.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/resource/JQuery_UI/js/jquery-ui-1.10.4.custom.min.js&quot;)} 
+
+var page = &quot;/apex/SurveyClone?id={!ARM_Survey__c.Id}&quot;; 
+
+var $dialog = $(&apos;&lt;div&gt;&lt;/div&gt;&apos;) 
+.html(&apos;&lt;iframe style=&quot;border: 0px; &quot; src=&quot;&apos; + page + &apos;&quot; width=&quot;100%&quot; height=&quot;100%&quot;&gt;&lt;/iframe&gt;&apos;) 
+.dialog({ 
+autoOpen: false, 
+modal: true, 
+height: 400, 
+width: 500, 
+title: &quot;Clone Survey&quot; 
+}); 
+$dialog.dialog(&apos;open&apos;);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Manage_Questions</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>1000</height>
+        <linkType>page</linkType>
+        <masterLabel>Manage Questions</masterLabel>
+        <openType>noSidebar</openType>
+        <page>ARM_SurveyEditor</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

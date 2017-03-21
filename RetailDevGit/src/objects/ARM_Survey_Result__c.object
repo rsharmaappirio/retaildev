@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Appirio Retail Management (ARM) Object</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>ARM_Survey_Result</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Answer_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Answer Text</label>
+        <length>5000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Answer_value__c</fullName>
+        <description>Value can present number of cases or prices</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Value can present number of cases or prices</inlineHelpText>
+        <label>Answer Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Base_Size__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Nielson_Product__r.Nielsen_Size__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Base Size</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Brand_Description__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nielson_Product__r.Nielsen_Brand__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Brand Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Brand_Extension__c</fullName>
+        <description>Brand extension from the Nieisen Product table</description>
+        <externalId>false</externalId>
+        <formula>Nielson_Product__r.Nielsen_Brand_Variant__c</formula>
+        <inlineHelpText>Brand extension from the Nieisen Product table</inlineHelpText>
+        <label>Brand Extension</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Brand_Family__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nielson_Product__r.Nielsen_Brand_Family__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Brand Family</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Business_Entrps_High__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nielson_Product__r.Nielsen_Supplier__c</formula>
+        <label>Business Entrps High</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Nielson_Product__r.Nielsen_Category__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Category</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Who submitted survey?</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Survey Result</relationshipLabel>
+        <relationshipName>ARM_Survey_Result</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Diageo_Category2__c</fullName>
+        <description>Diageo category from the Neilsen Product table</description>
+        <externalId>false</externalId>
+        <formula>Nielson_Product__r.Diageo_Category_Formula__c</formula>
+        <inlineHelpText>Diageo category from the Neilsen Product table</inlineHelpText>
+        <label>Diageo Category</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Diageo_Segment__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Nielson_Product__r.Diageo_Brand__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Diageo Segment</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Goal_Achievement__c</fullName>
+        <description>The goal achievement of this particular survey submission</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The goal achievement of this particular survey submission</inlineHelpText>
+        <label>Goal Achievement</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HARD_CODED_ONE__c</fullName>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label># Displays</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Manually_Entered_Base_Size__c</fullName>
+        <description>If the user manually enters a product via the app, this value will be populated. This should be used ONLY to reconcile this result and relate it to the proper Nielsen Product via the actual link relationship.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the user manually enters a product via the app, this value will be populated. This should be used ONLY to reconcile this result and relate it to the proper Nielsen Product via the actual link relationship.</inlineHelpText>
+        <label>Manually Entered Base Size</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Manually_Entered_Brand_Desc__c</fullName>
+        <description>If the user manually enters a product via the app, this value will be populated. This should be used ONLY to reconcile this result and relate it to the proper Nielsen Product via the actual link relationship.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the user manually enters a product via the app, this value will be populated. This should be used ONLY to reconcile this result and relate it to the proper Nielsen Product via the actual link relationship.</inlineHelpText>
+        <label>Manually Entered Brand Desc</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Manually_Entered_City__c</fullName>
+        <description>If the user manually enters a location via the app, this value will be populated.  This should be used ONLY to reconcile this result and relate it to the proper location (Account) via the actual link relationship.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the user manually enters a location via the app, this value will be populated.  This should be used ONLY to reconcile this result and relate it to the proper location (Account) via the actual link relationship.</inlineHelpText>
+        <label>Manually Entered City</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Manually_Entered_State__c</fullName>
+        <description>If the user manually enters a location via the app, this value will be populated. This should be used ONLY to reconcile this result and relate it to the proper location (Account) via the actual link relationship.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the user manually enters a location via the app, this value will be populated. This should be used ONLY to reconcile this result and relate it to the proper location (Account) via the actual link relationship.</inlineHelpText>
+        <label>Manually Entered State</label>
+        <length>2</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Manually_Entered_Store_Address__c</fullName>
+        <description>If the user manually enters a location via the app, this value will be populated.  This should be used ONLY to reconcile this result and relate it to the proper location (Account) via the actual link relationship.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the user manually enters a location via the app, this value will be populated.  This should be used ONLY to reconcile this result and relate it to the proper location (Account) via the actual link relationship.</inlineHelpText>
+        <label>Manually Entered Store Address</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Manually_Entered_Store_Name__c</fullName>
+        <description>If the user manually enters a location via the app, this value will be populated. This should be used ONLY to reconcile this result and relate it to the proper location (Account) via the actual link relationship.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the user manually enters a location via the app, this value will be populated. This should be used ONLY to reconcile this result and relate it to the proper location (Account) via the actual link relationship.</inlineHelpText>
+        <label>Manually Entered Store Name</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Manually_Entered_Store_Number__c</fullName>
+        <description>If the user manually enters a location via the app, this value will be populated.  This should be used ONLY to reconcile this result and relate it to the proper location (Account) via the actual link relationship.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the user manually enters a location via the app, this value will be populated</inlineHelpText>
+        <label>Manually Entered Store Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Manually_Entered_UPC_Description__c</fullName>
+        <description>If the user manually enters a product via the app, this value will be populated. This should be used ONLY to reconcile this result and relate it to the proper Nielsen Product via the actual link relationship.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the user manually enters a product via the app, this value will be populated. This should be used ONLY to reconcile this result and relate it to the proper Nielsen Product via the actual link relationship.</inlineHelpText>
+        <label>Manually Entered UPC Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Nielson_Product__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Product ref data</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Product ref data</inlineHelpText>
+        <label>Nielsen Product</label>
+        <referenceTo>ARM_Nielson_Product__c</referenceTo>
+        <relationshipLabel>Survey Result</relationshipLabel>
+        <relationshipName>ARM_Survey_Result</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Note__c</fullName>
+        <externalId>false</externalId>
+        <label>Note</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Percent_Answers_Selected__c</fullName>
+        <externalId>false</externalId>
+        <formula>Selected_Answers__c / Possible_Answers__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Percent Answers Selected</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Possible_Answers__c</fullName>
+        <description>Number of possible answers to a survey question</description>
+        <externalId>false</externalId>
+        <label>Possible Answers</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Question_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Question__r.Question_Number__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Question Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Question_Text__c</fullName>
+        <defaultValue>&quot;Number of cases on display&quot;</defaultValue>
+        <externalId>false</externalId>
+        <label>Question Text</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Question_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Question Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Count</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Price</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Text</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Question__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Ref to original Question</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Ref to original Question</inlineHelpText>
+        <label>Question</label>
+        <referenceTo>ARM_Question__c</referenceTo>
+        <relationshipName>ARM_Survey_Result</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Result_Brand_Ext_ID__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <description>external ID that will be used in Heroku to reference the survey result when saving child survey brand results (before the SF ID is created)</description>
+        <externalId>true</externalId>
+        <label>Result Brand Ext ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Result_Ext_ID__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <description>external ID that will be used in Heroku to reference the survey result when saving child photos (before the SF ID is created)</description>
+        <externalId>true</externalId>
+        <label>Result Ext ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Score__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Score received for that question</inlineHelpText>
+        <label>Score</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Selected_Answers__c</fullName>
+        <externalId>false</externalId>
+        <label>Selected Answers</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Survey_Submission__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Survey Submission</label>
+        <referenceTo>ARM_Survey_Submission__c</referenceTo>
+        <relationshipLabel>Survey Result</relationshipLabel>
+        <relationshipName>ARM_Survey_Result</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Surveyor_e_mail__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Surveyor e-mail</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UPC__c</fullName>
+        <description>Product Code</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Product Code</inlineHelpText>
+        <label>UPC</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>survey__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Link to Survey definition header</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Link to Survey definition header</inlineHelpText>
+        <label>Survey</label>
+        <referenceTo>ARM_Survey__c</referenceTo>
+        <relationshipName>ARM_Survey_Result</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Survey Result</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>Question_Text__c</columns>
+        <columns>Answer_Text__c</columns>
+        <columns>Answer_value__c</columns>
+        <columns>Question_Type__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Results</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Account__c</columns>
+        <columns>Manually_Entered_City__c</columns>
+        <columns>Manually_Entered_State__c</columns>
+        <columns>Manually_Entered_Store_Address__c</columns>
+        <columns>Manually_Entered_Store_Name__c</columns>
+        <columns>Nielson_Product__c</columns>
+        <columns>UPC__c</columns>
+        <columns>Manually_Entered_Brand_Desc__c</columns>
+        <columns>Manually_Entered_UPC_Description__c</columns>
+        <columns>Question_Text__c</columns>
+        <columns>Answer_value__c</columns>
+        <columns>Note__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Results</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Surveys_with_Location</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Nielson_Product__c</columns>
+        <columns>Brand_Extension__c</columns>
+        <columns>Diageo_Category2__c</columns>
+        <columns>Manually_Entered_Base_Size__c</columns>
+        <columns>Manually_Entered_Brand_Desc__c</columns>
+        <columns>Manually_Entered_UPC_Description__c</columns>
+        <columns>Question_Text__c</columns>
+        <columns>Answer_value__c</columns>
+        <columns>Answer_Text__c</columns>
+        <columns>Note__c</columns>
+        <columns>Survey_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Account__c</field>
+            <operation>contains</operation>
+            <value>kelly</value>
+        </filters>
+        <label>All Surveys with Location</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Surveys_with_Nielsen_Product</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Manually_Entered_State__c</columns>
+        <columns>Manually_Entered_City__c</columns>
+        <columns>Manually_Entered_Store_Name__c</columns>
+        <columns>Manually_Entered_Store_Number__c</columns>
+        <columns>Manually_Entered_Store_Address__c</columns>
+        <columns>Nielson_Product__c</columns>
+        <columns>Brand_Extension__c</columns>
+        <columns>Diageo_Category2__c</columns>
+        <columns>Question_Text__c</columns>
+        <columns>Answer_value__c</columns>
+        <columns>Answer_Text__c</columns>
+        <columns>Note__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Nielson_Product__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>All Surveys with Nielsen Product</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Surveys_withoutvalue</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>Nielson_Product__c</columns>
+        <columns>Brand_Extension__c</columns>
+        <columns>Diageo_Category2__c</columns>
+        <columns>Manually_Entered_Base_Size__c</columns>
+        <columns>Manually_Entered_Brand_Desc__c</columns>
+        <columns>Manually_Entered_UPC_Description__c</columns>
+        <columns>Question_Text__c</columns>
+        <columns>Answer_value__c</columns>
+        <columns>Answer_Text__c</columns>
+        <columns>Note__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Account__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>All Surveys without Value</label>
+    </listViews>
+    <listViews>
+        <fullName>Surveys_w_Manual_Accounts</fullName>
+        <columns>OBJECT_ID</columns>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Contact__c</columns>
+        <columns>Account__c</columns>
+        <columns>Manually_Entered_Store_Name__c</columns>
+        <columns>Manually_Entered_Store_Number__c</columns>
+        <columns>Manually_Entered_Store_Address__c</columns>
+        <columns>Manually_Entered_City__c</columns>
+        <columns>Manually_Entered_State__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Manually_Entered_Store_Name__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <filters>
+            <field>Account__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>Surveys w/ Manual Accounts</label>
+    </listViews>
+    <listViews>
+        <fullName>Surveys_w_Manual_Products</fullName>
+        <columns>CREATED_DATE</columns>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Nielson_Product__c</columns>
+        <columns>UPC__c</columns>
+        <columns>Manually_Entered_UPC_Description__c</columns>
+        <columns>Manually_Entered_Base_Size__c</columns>
+        <columns>Manually_Entered_Brand_Desc__c</columns>
+        <columns>Manually_Entered_City__c</columns>
+        <columns>Manually_Entered_State__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Manually_Entered_UPC_Description__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <filters>
+            <field>Nielson_Product__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>Surveys w/ Manual Products</label>
+    </listViews>
+    <listViews>
+        <fullName>Susan_Lathrop</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Account__c</columns>
+        <columns>Manually_Entered_City__c</columns>
+        <columns>Manually_Entered_State__c</columns>
+        <columns>Manually_Entered_Store_Name__c</columns>
+        <columns>Nielson_Product__c</columns>
+        <columns>Manually_Entered_Base_Size__c</columns>
+        <columns>Manually_Entered_Brand_Desc__c</columns>
+        <columns>Manually_Entered_UPC_Description__c</columns>
+        <columns>survey__c</columns>
+        <columns>Question_Text__c</columns>
+        <columns>Answer_value__c</columns>
+        <columns>Note__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Contact__c</field>
+            <operation>contains</operation>
+            <value>paul robbins</value>
+        </filters>
+        <label>Susan Lathrop Results</label>
+    </listViews>
+    <listViews>
+        <fullName>TODAY</fullName>
+        <columns>NAME</columns>
+        <columns>survey__c</columns>
+        <columns>Contact__c</columns>
+        <columns>Account__c</columns>
+        <columns>Question_Text__c</columns>
+        <columns>Answer_value__c</columns>
+        <columns>Answer_Text__c</columns>
+        <columns>Goal_Achievement__c</columns>
+        <columns>Survey_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>TODAY&apos;s Results</label>
+    </listViews>
+    <nameField>
+        <displayFormat>S-{0000000}</displayFormat>
+        <label>Survey Result Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>ARM Survey Result</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>survey__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Survey_Submission__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Survey_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Contact__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Question__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Answer_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Answer_value__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Contact__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>survey__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Survey_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Survey_Submission__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

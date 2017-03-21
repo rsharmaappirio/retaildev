@@ -1,0 +1,289 @@
+<apex:page extensions="ARM_SurveyEditorController" showHeader="true" standardStyleSheets="false" applyBodyTag="false" standardController="ARM_Survey__c" cache="false"> 
+<!--Added Cache = false attribute for DE2062 -->
+     
+     <!--  CONFIG VARIABLES -->
+    <script>
+        //the survey ID
+        _SURVEY_ID = '{!ARM_Survey__c.Id}'; 
+        //remote action to fetch all data (survey and children)
+        _CONTROLLER_GETSURVEY_ACTION = '{!$RemoteAction.ARM_SurveyEditorController.getSurvey}';
+        //remote action to create a new question
+        _CONTROLLER_UPSERTQUESTION_ACTION = '{!$RemoteAction.ARM_SurveyEditorController.upsertQuestion}';
+        //remote action to set the first question on the survey
+        _CONTROLLER_SETFIRSTQUESTION_ACTION = '{!$RemoteAction.ARM_SurveyEditorController.setFirstQuestion}';
+        //remote action to remove a question
+        _CONTROLLER_REMOVEQUESTION_ACTION = '{!$RemoteAction.ARM_SurveyEditorController.removeQuestion}';
+        //remote action to search brands by nme
+        _CONTROLLER_SEARCHBRAND_ACTION = '{!$RemoteAction.ARM_SurveyEditorController.searchBrands}';
+        //remote action to fetch all answer brands by brand level and question brand.
+        _CONTROLLER_GETALL_ANSWER_BRAND_ACTION = '{!$RemoteAction.ARM_SurveyEditorController.getBrands}';
+    </script>
+    <!-- TODO : load Jquery from static resource ARM_JQuery_UI -->
+    <script src="{!URLFOR($Resource.ARM_SurveyEditor_Core,'/jquery-1.10.2.js')}"></script>
+    <script src="{!URLFOR($Resource.ARM_SurveyEditor_Core,'/jquery.color-2.1.2.min.js')}"></script><!-- For animating colors (see $.fn.pulse()) -->
+    <script src="{!URLFOR($Resource.ARM_SurveyEditor_Core,'/es5.js')}"></script> <!-- Polyfils for ES5 Array methods (e.g. map, filter) -->
+    <script src="{!URLFOR($Resource.ARM_SurveyEditor_Salesforce)}"></script> <!-- CRUD methods for salesforce -->
+    <script src="{!URLFOR($Resource.ARM_SurveyEditor_Questions)}"></script> <!-- questions.js -->
+    <script src="{!URLFOR($Resource.ARM_SurveyEditor_UI)}"></script> <!-- ui.js -->
+    <script src="{!URLFOR($Resource.ARM_SurveyEditor_Data)}"></script> <!-- data.js -->
+    
+    <script src="{!URLFOR($Resource.ARM_JQuery_UI,'/js/jquery-ui-1.10.4.custom.min.js')}"></script> <!-- jquery UI -->
+    
+    <apex:stylesheet value="{!URLFOR($Resource.ARM_SurveyEditor_CSS)}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.ARM_JQuery_UI,"/css/ui-lightness/jquery-ui-1.10.4.custom.min.css")}" />
+    
+    
+    <style>
+        .answer-add                                 { background-image: url('{!URLFOR($Resource.ARM_SurveyEditor_Core,"/img/answer-add.png")}');  background-repeat: no-repeat; background-position: 6px; border-bottom-left-radius: 6px; border-top-left-radius: 6px;}
+        .answer-remove                              { background-image: url('{!URLFOR($Resource.ARM_SurveyEditor_Core,"/img/answer-remove.png")}');  background-repeat: no-repeat; background-position: 6px; border-bottom-right-radius: 6px; border-top-right-radius: 6px; border-left: 0;}
+        .answer-brand-remove                        { background-image: url('{!URLFOR($Resource.ARM_SurveyEditor_Core,"/img/answer-remove.png")}'); background-repeat: no-repeat; background-position: 6px; border-bottom-left-radius: 6px; border-top-left-radius: 6px; border-bottom-right-radius: 6px; border-top-right-radius: 6px;}
+        .answer-brand-remove:hover                  { background-color: #fdd; }
+        .buttons .add                               { background: #0a0 url('{!URLFOR($Resource.ARM_SurveyEditor_Core,"/img/add.png")}')   no-repeat 8px 4px !important; width:38px; }
+        .buttons .add-if                            { background: #0a0 url('{!URLFOR($Resource.ARM_SurveyEditor_Core,"/img/add-if.png")}') no-repeat 8px 4px !important; width:38px;}
+        .buttons .remove                            { background: #a00 url('{!URLFOR($Resource.ARM_SurveyEditor_Core,"/img/remove.png")}') no-repeat 8px 4px; width:38px;
+                                                        border-bottom-right-radius: 6px; border-top-right-radius: 6px !important}
+        .name                                       {font-size: x-large !important;}
+        
+        .ui-autocomplete-loading                    {background: #fff url("/img/loading.gif") no-repeat  right center; }
+        .ui-autocomplete                            {z-index: 200;max-height: 300px;overflow-y: auto;overflow-x: hidden;padding-right: 20px;}
+        
+        input.score                                 {width:25px}
+        input.goalScore                             {width:25px}
+        input.value                                 {width:250px}
+        input.goalName                              {width:97%}
+        .popup .answeralert                         {color: RED;}
+        .invalidUIMsg                               {display:none;font-size: larger;float: right;width: 100%;color: red;font-style: oblique;}
+        
+    </style>
+    
+   
+        
+    <body style="">
+    
+     <div class="flash">
+      <span class="message">Question deleted.</span>
+      <a class="undo" href="#">Undo</a> 
+    </div>
+
+    <div class="saving">Saving...</div>
+    <div class="loading" style="display: none;">Loading...</div>
+    
+    <div class="survey">
+      <h2 class="name">Loading survey...</h2>
+        <div class="invalidUIMsg">Since you have generated answer options, you will need to refresh the question editor page to review changes to conditional questions.</div>
+      <br/><br/><br/>
+      <a class="createQuestion" href="#" style="display: none;">Add First Question</a>
+        
+      <div class="questions">
+      </div>
+    </div>
+    
+
+
+    <a class="keyboard-help-icon" href="#"><img src="{!URLFOR($Resource.ARM_SurveyEditor_Core,'/img/keyboard.png')}"/></a>
+    <div class="keyboard-help">
+      <h4>Keyboard Shortcuts</h4>
+      <dl>
+        <dt>Enter:</dt><dd>Goto Next Question</dd>
+        <dt>Shift + Enter:</dt><dd>Goto Previous Question</dd>
+        <dt>Ctrl + Enter:</dt><dd>Insert a new Question</dd>
+        <dt>Ctrl + Shift + Enter:</dt><dd>Insert a new Conditional Question</dd>
+      </dl>
+    </div>
+
+    <!-- TEMPLATES -->
+    <div id="templates">
+
+      <div class="question">
+
+        <div class="conditional">
+          <div class="arrow"><img src="{!URLFOR($Resource.ARM_SurveyEditor_Core,'/img/add-gray.png')}"/></div>
+          If <input class="answer" value="Yes" title="Ask the following questions, if the answer to the previous question was..."/>
+        </div>
+
+        <div class="row">
+          <div class="controls">
+
+
+              <div class="popup">
+                  <div class="msgspace" ></div>
+                <div class="row">
+                  <div class="row">
+                    <label>Type:</label>
+                    <select class="type">
+                      <option value="Count">Number</option>
+                      <option value="Price">Price</option>
+                      <option value="Select">Select (One)</option>
+                      <option value="Multi-Select">Select (Multiple)</option>
+                      <option value="Text">Text</option>
+                    </select>
+                  </div>
+                
+                
+                  <div class="row">
+                        <label style="width:12px;">
+                        <input class="isGoal" type="checkbox"/>This is a goal</label>
+                   </div>
+                  
+                  <div class="row">
+                      <div class="type-column">
+                        <label>Type:</label>
+                        <select class="goalType"  disabled="disabled">
+                          <apex:repeat value="{!GoalTypes}" var="type"><option value="{!type}">{!type}</option></apex:repeat>
+                        </select>
+                      </div>
+                      <div class="brand-column">
+                        <label>Brand:</label>
+                        <input type="text" class="goalBrand"  />
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="level-for-answers-column">
+                          &nbsp;
+                      </div>
+                      <div class="level-for-answers-button-column">
+                            <label>Level for answers:</label>
+                            <select class="answerLevel">
+                              <option value="-SELECT-">-SELECT-</option>
+                              <option value="L2">L2</option>
+                              <option value="L3">L3</option>
+                              <option value="L4">L4</option>
+                              <option value="L5">L5</option>
+                              <option value="L6">L6</option>
+                             </select>
+                             <button class="generateAnswer" style="margin-left:10px">Generate Answers</button>
+                      </div>
+                  </div>
+                   <div class="row">
+                      <label>Goal Name:</label>
+                      <input class="goalName" type="text" disabled="disabled"/>
+                   </div>
+                   
+                  <div style="clear:both"></div>
+                  <div class="gap"><hr class="line-style" /></div>
+                  <div class="answeralert"></div>
+                  <div class="row">
+                    <div class="answer-column"><label>Answers:</label></div>
+                    <div class="score-column"><label>Scores:</label></div>
+                    <div class="goal-score-column"><label>Count towards goal:</label></div>
+                    <div class="answer-button-column"></div>
+                  </div>
+
+                  <div class="answer-list row" style="white-space: normal;">
+                  </div>
+
+                  <div class="row">
+                    <div class="answer-column">
+                      <label>
+                        <input class="includeNone" type="checkbox"/>
+                        Include 'None of the Above'
+                      </label>
+                    </div>
+                    <div class="small-column">
+                      <label class="max-score"></label>
+                      <label class="max-score-label">Max</label>
+                    </div>
+                    <div class="small-column">
+                      <label class="max-goal-score"></label>
+                      <label class="max-score-label">Max</label>
+                    </div>
+                    
+                  </div>
+                  
+                  <div class="row">
+                    <div class="answer-column">
+                      <label>
+                        <input class="includePhotos" type="checkbox"/>
+                        Include Photos
+                      </label>
+                    </div>
+                  </div>
+                  
+				  <div class="row">
+                    <div class="answer-column">
+                      <label>
+                        <input class="requirePhotos" type="checkbox"/>
+                        Require Photos
+                      </label>
+                    </div>
+                  </div>
+                  
+                  <div style="clear:both"></div>
+                  <div class="gap"></div>
+
+                  <div class="row">
+                    <label>Label for Additional Comments:</label>
+                    <input class="commentsLabel" value=""/>
+                  </div>
+
+                  <div class="row centered">
+                    <button class="ok">OK</button>
+                    <button class="cancel">Cancel</button>
+                  </div>
+                </div>
+
+              </div>
+
+
+            <div class="number">
+              <span class="label"></span>
+
+              <a href="#" class="move-up">Up</a>
+              <a href="#" class="move-down">Down</a>
+              <a href="#" class="move-left">&lt;</a>
+              <a href="#" class="move-right">&gt;</a>
+
+            </div><div class="text-controls">
+
+              <input class="text" placeholder="Type question here"/>
+
+              <a class="answers" href="#" title="Answers allowed">
+                <div class="drop-down-arrow">&#9660;</div>
+                <span class="type"></span>
+                <span class="values"></span>
+              </a>
+
+            </div>
+          </div><div class="buttons" >
+            <a href="#" title="Add a question after this one" class="add button"></a>
+            <a href="#" title="Add a conditional question" class="add-if button"></a>
+            <a href="#" title="Remove this question" class="remove button"></a>
+          </div>
+        </div>
+
+        <!-- Spacer is used when the last child question -->
+        <div class="spacer">&nbsp;</div>
+
+      </div>
+
+
+      <div class="answer-row">
+
+        <div class="answer-column">
+          <input class="value" value=""/>
+          <div class="answer-brand-buttons" style="display:none;">
+            <a href="#" title="Remove selected brand" class="answer-brand-remove answer-button"></a>
+          </div>
+        </div>
+
+        <div class="score-column">
+          <input class="score" value="0"/>
+        </div>
+        
+        <div class="goal-score-column">
+          <input class="goalScore" value="0"  disabled="disabled"/>
+        </div>
+
+        <div class="answer-button-column">
+          <div class="answer-buttons">
+            <a href="#" title="Add an answer (after this one)" class="answer-add answer-button"></a>
+            <a href="#" title="Remove this answer" class="answer-remove answer-button"></a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    </body>
+
+</apex:page>
