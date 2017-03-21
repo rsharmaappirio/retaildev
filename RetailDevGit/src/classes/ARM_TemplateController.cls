@@ -7,7 +7,7 @@
  * 
  * Date Modified      Modified By                  Description of the update
  *  =====================================================================*/
-public without sharing class ARM_TemplateController {
+public with sharing class ARM_TemplateController {
     private static final string DESIGNATED_CONTACT = 'Designated Contact';
     @AuraEnabled
     public static User getCurrentUser() {
